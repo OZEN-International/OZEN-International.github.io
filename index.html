@@ -1086,6 +1086,9 @@
         cursor: pointer;
     }
 }
+          nav ul {
+    z-index: 9999;
+}
     </style>
 </head>
 <body>
@@ -1601,8 +1604,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-      console.log('Mobile button:', document.getElementById('mobileMenuBtn'));
-console.log('Nav menu:', document.getElementById('navMenu'));
+document.getElementById('mobileMenuBtn').onclick = function() {
+    document.getElementById('navMenu').classList.toggle('show');
+};
 
   // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
