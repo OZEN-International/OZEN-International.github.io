@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
+         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>OZÈN Internationals - Premium Health Supplements</title>
@@ -1059,48 +1059,18 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-          @media (max-width: 768px) {
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
-    
-    nav ul.show {
-        display: flex;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #00a19a;
-        cursor: pointer;
-    }
-}
-          nav ul {
-    z-index: 9999;
-}
     </style>
 </head>
 <body>
        <header>
         <div class="container header-container">
-           <div class="logo">
+            <div class="logo">
     <img src="https://github.com/OZEN-International/OZEN-International.github.io/blob/main/images/ozen-profile.jpg?raw=true" alt="OZEN Profile Picture">
-    <h1>OZÈN Internationals</h1>
-</div>
-           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-    <i class="fas fa-bars"></i>
-</button>
+                <h1>OZÈN Internationals</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Home</a></li>
@@ -1564,26 +1534,21 @@
     <!-- Cart Notification -->
     <div class="cart-notification"></div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('show');
-            // Change icon when menu is open/closed
-            const icon = this.querySelector('i');
-            if (navMenu.classList.contains('show')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            this.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
-});
-  // Initialize cart
+
+    // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
     // Add cart icon to navigation if navMenu exists
@@ -1598,175 +1563,9 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.appendChild(cartIcon);
     }
 
-    // Shop Now button functionality
-    const showAllProductsBtn = document.getElementById('showAllProducts');
-    if (showAllProductsBtn) {
-        showAllProductsBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Hide hero section
-            const heroSection = document.querySelector('.hero');
-            if (heroSection) heroSection.style.display = 'none';
-            
-            // Show products section
-            const productsSection = document.querySelector('.products');
-            if (productsSection) {
-                productsSection.style.display = 'block';
-                
-                // Scroll to products
-                window.scrollTo({
-                    top: productsSection.offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Add back button above products if not already there
-                if (!document.querySelector('.products-back-btn')) {
-                    const backButton = document.createElement('button');
-                    backButton.className = 'back-btn products-back-btn';
-                    backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Home';
-                    backButton.addEventListener('click', function() {
-                        if (heroSection) heroSection.style.display = 'flex';
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-                    
-                    productsSection.prepend(backButton);
-                }
-            }
-        });
-    }
-
-
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const productCard = this.closest('.product-card');
-        if (!productCard) return;
-        
-        // Generate a more reliable product ID using data attributes
-        const productId = productCard.dataset.category + '-' + 
-                         productCard.querySelector('.product-title').textContent.trim().replace(/\s+/g, '-').toLowerCase();
-        
-        const productTitle = productCard.querySelector('.product-title');
-        const productPrice = productCard.querySelector('.product-price');
-        
-        if (!productTitle || !productPrice) {
-            console.error('Product title or price element not found');
-            return;
-        }
-        
-        const productName = productTitle.textContent.trim();
-        const priceText = productPrice.textContent.trim();
-        const priceValue = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
-        
-        // Check if product already in cart
-        const existingIndex = cart.findIndex(item => item.id === productId);
-        if (existingIndex !== -1) {
-            cart[existingIndex].quantity += 1;
-        } else {
-            cart.push({
-                id: productId,
-                name: productName,
-                price: priceValue, // Store as number instead of text
-                quantity: 1
-            });
-        }
-        
-        try {
-            localStorage.setItem('ozen-cart', JSON.stringify(cart));
-        } catch (e) {
-            console.error('Failed to save cart to localStorage:', e);
-        }
-        
-        updateCartCount();
-        showCartNotification(`${productName} added to cart!`);
-    });
-});
-
-// Update cart count function
-function updateCartCount() {
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
-    const cartCountElement = document.getElementById('cartCount');
-    if (cartCountElement) {
-        cartCountElement.textContent = count;
-        // Show/hide cart count based on items
-        cartCountElement.style.display = count > 0 ? 'inline-block' : 'none';
-    }
-}
-
-// Show cart notification function
-function showCartNotification(message) {
-    const notification = document.querySelector('.cart-notification');
-    if (!notification) {
-        console.error('Notification element not found');
-        return;
-    }
-    
-    notification.textContent = message;
-    notification.classList.add('show');
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 2000);
-}
-
-// Cart link click handler
-document.getElementById('cartLink')?.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-    }
-    
-    // Prepare WhatsApp message with grouped quantities
-    let message = "Hello OZÈN Internationals,\n\nI would like to place an order:\n\n";
-    let total = 0;
-
-    // Group products by ID to combine quantities
-    const productGroups = {};
-    cart.forEach(item => {
-        if (!productGroups[item.id]) {
-            productGroups[item.id] = {
-                name: item.name,
-                price: item.price, // Already stored as number
-                quantity: 0
-            };
-        }
-        productGroups[item.id].quantity += item.quantity;
-    });
-
-    // Add grouped items to message
-    Object.values(productGroups).forEach(item => {
-        const subtotal = item.price * item.quantity;
-        message += `➤ ${item.name}\n   Quantity: ${item.quantity}\n   Price: £${item.price.toFixed(2)}\n   Subtotal: £${subtotal.toFixed(2)}\n\n`;
-        total += subtotal;
-    });
-
-    message += `\nTOTAL: £${total.toFixed(2)}\n\n`;
-    message += "Delivery Details:\nName: \nAddress: \nPhone: \n\nPlease confirm my order. Thank you!";
-    
-    // Clear cart only after successful message creation
-    try {
-        cart = [];
-        localStorage.setItem('ozen-cart', JSON.stringify(cart));
-        updateCartCount();
-        
-        // Open WhatsApp with prefilled message
-        window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
-    } catch (e) {
-        console.error('Failed to process order:', e);
-        alert('There was an error processing your order. Please try again.');
-    }
-});
-
-// Initialize cart count on page load
-updateCartCount();
     // Track order page functionality
     const trackOrderLink = document.getElementById('trackOrderLink');
     const orderTrackPage = document.querySelector('.order-track-page');
-    const backBtn = document.querySelector('.back-btn');
     
     if (trackOrderLink && orderTrackPage) {
         trackOrderLink.addEventListener('click', function(e) {
@@ -1779,105 +1578,164 @@ updateCartCount();
             
             // Show track order page
             orderTrackPage.style.display = 'block';
-        });
-    }
-    
-    if (backBtn && orderTrackPage) {
-        backBtn.addEventListener('click', function() {
-            // Show all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'block';
+            
+            // Add back button
+            const backButton = document.createElement('button');
+            backButton.className = 'back-btn';
+            backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Home';
+            backButton.addEventListener('click', function() {
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'block';
+                });
+                orderTrackPage.style.display = 'none';
+                backButton.remove();
             });
             
-            // Hide track order page
-            orderTrackPage.style.display = 'none';
+            orderTrackPage.prepend(backButton);
         });
     }
-    
-    // Track order form submission
-    const orderTrackForm = document.getElementById('orderTrackForm');
-    if (orderTrackForm) {
-        orderTrackForm.addEventListener('submit', function(e) {
+
+    // About Us button functionality
+    const aboutLink = document.querySelector('a[href="#about"]');
+    if (aboutLink) {
+        aboutLink.addEventListener('click', function(e) {
             e.preventDefault();
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Shop Now button functionality
+    const showAllProductsBtn = document.getElementById('showAllProducts');
+    if (showAllProductsBtn) {
+        showAllProductsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#products').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Add to cart functionality
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productCard = this.closest('.product-card');
+            if (!productCard) return;
             
-            const orderId = this.querySelector('input[type="text"]')?.value;
-            const email = this.querySelector('input[type="email"]')?.value;
+            const productId = productCard.dataset.category + '-' + 
+                             productCard.querySelector('.product-title').textContent.trim().replace(/\s+/g, '-').toLowerCase();
             
-            if (!orderId || !email) {
-                alert('Please fill all fields');
+            const productTitle = productCard.querySelector('.product-title');
+            const productPrice = productCard.querySelector('.product-price');
+            
+            if (!productTitle || !productPrice) {
+                console.error('Product title or price element not found');
                 return;
             }
             
-            // Send email
-            const subject = `Order Tracking Request - ${orderId}`;
-            const body = `Order ID: ${orderId}\nCustomer Email: ${email}`;
-            window.location.href = `mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const productName = productTitle.textContent.trim();
+            const priceText = productPrice.textContent.trim();
+            const priceValue = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
             
-            // Show success message
-            alert('Your request has been submitted. We will respond soon!');
-            this.reset();
+            // Check if product already in cart
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex !== -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: priceValue,
+                    quantity: 1
+                });
+            }
+            
+            try {
+                localStorage.setItem('ozen-cart', JSON.stringify(cart));
+            } catch (e) {
+                console.error('Failed to save cart to localStorage:', e);
+            }
+            
+            updateCartCount();
+            showCartNotification(`${productName} added to cart!`);
         });
+    });
+
+    // Update cart count function
+    function updateCartCount() {
+        const count = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartCountElement = document.getElementById('cartCount');
+        if (cartCountElement) {
+            cartCountElement.textContent = count;
+            cartCountElement.style.display = count > 0 ? 'inline-block' : 'none';
+        }
     }
-        document.getElementById('testimonialForm')?.addEventListener('submit', function(e) {
-    submitReview(e);
-});
-function submitReview(event) {
-    event.preventDefault(); // This prevents the page from reloading
-    
-    const form = event.target;
-    const name = document.getElementById('testimonialName')?.value.trim();
-    const email = document.getElementById('testimonialEmail')?.value.trim();
-    const text = document.getElementById('testimonialText')?.value.trim();
-    
-    // Validate form
-    if (!text) {
-        alert('Please write your review');
-        return;
-    }
-    
-    if (currentRating === 0) {
-        alert('Please select a rating');
-        return;
-    }
-    
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-    
-    // Create new testimonial
-    const newTestimonial = {
-        id: Date.now().toString(),
-        name: name || 'Anonymous',
-        email: email || '',
-        text: text,
-        rating: currentRating,
-        date: new Date().toISOString(),
-        adminKey: Math.random().toString(36).substr(2, 9)
-    };
-    
-    // Save to localStorage
-    let testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
-    testimonials.unshift(newTestimonial);
-    localStorage.setItem('ozen-testimonials', JSON.stringify(testimonials));
-    
-    // Show thank you message
-    const thankYouMessage = document.querySelector('.thank-you-message');
-    if (thankYouMessage) {
-        thankYouMessage.classList.add('show');
+
+    // Show cart notification function
+    function showCartNotification(message) {
+        const notification = document.querySelector('.cart-notification');
+        if (!notification) {
+            console.error('Notification element not found');
+            return;
+        }
+        
+        notification.textContent = message;
+        notification.classList.add('show');
+        
         setTimeout(() => {
-            thankYouMessage.classList.remove('show');
-        }, 3000);
+            notification.classList.remove('show');
+        }, 2000);
     }
-    
-    // Reload testimonials
-    loadTestimonials();
-    
-    // Reset form
-    form.reset();
-    currentRating = 0;
-    updateStars();
-}
+
+    // Cart link click handler
+    document.getElementById('cartLink')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+        
+        let message = "Hello OZÈN Internationals,\n\nI would like to place an order:\n\n";
+        let total = 0;
+
+        const productGroups = {};
+        cart.forEach(item => {
+            if (!productGroups[item.id]) {
+                productGroups[item.id] = {
+                    name: item.name,
+                    price: item.price,
+                    quantity: 0
+                };
+            }
+            productGroups[item.id].quantity += item.quantity;
+        });
+
+        Object.values(productGroups).forEach(item => {
+            const subtotal = item.price * item.quantity;
+            message += `➤ ${item.name}\n   Quantity: ${item.quantity}\n   Price: Rs.${item.price.toFixed(2)}\n   Subtotal: Rs.${subtotal.toFixed(2)}\n\n`;
+            total += subtotal;
+        });
+
+        message += `\nTOTAL: Rs.${total.toFixed(2)}\n\n`;
+        message += "Delivery Details:\nName: \nAddress: \nPhone: \n\nPlease confirm my order. Thank you!";
+        
+        try {
+            cart = [];
+            localStorage.setItem('ozen-cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
+        } catch (e) {
+            console.error('Failed to process order:', e);
+            alert('There was an error processing your order. Please try again.');
+        }
+    });
+
+    // Initialize cart count on page load
+    updateCartCount();
+
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -1889,7 +1747,6 @@ function submitReview(event) {
             const subject = this.subject?.value.trim();
             const message = this.message?.value.trim();
             
-            // Validate form
             if (!name || !email || !subject || !message) {
                 alert('Please fill all required fields');
                 return;
@@ -1900,39 +1757,17 @@ function submitReview(event) {
                 return;
             }
 
-            // Send email
             const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
             window.location.href = `mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
-            // Show success message
             alert('Thank you for your message! We will respond soon.');
             this.reset();
-        });
-    }
-
-    // List/Grid view toggle
-    const gridViewBtn = document.getElementById('gridView');
-    const listViewBtn = document.getElementById('listView');
-    const productsGrid = document.querySelector('.products-grid');
-
-    if (gridViewBtn && listViewBtn && productsGrid) {
-        gridViewBtn.addEventListener('click', function() {
-            productsGrid.classList.remove('list-view');
-            gridViewBtn.classList.add('active');
-            listViewBtn.classList.remove('active');
-        });
-
-        listViewBtn.addEventListener('click', function() {
-            productsGrid.classList.add('list-view');
-            listViewBtn.classList.add('active');
-            gridViewBtn.classList.remove('active');
         });
     }
 
     // Testimonials functionality
     const testimonialForm = document.getElementById('testimonialForm');
     const testimonialsContainer = document.getElementById('testimonialsContainer');
-    const thankYouMessage = document.querySelector('.thank-you-message');
     let currentRating = 0;
     
     // Load testimonials from localStorage
@@ -1971,7 +1806,6 @@ function submitReview(event) {
             });
             
             if (isAdmin) {
-                // Delete functionality
                 document.querySelectorAll('.delete-review').forEach(btn => {
                     btn.addEventListener('click', function() {
                         const testimonialId = this.dataset.id;
@@ -1981,7 +1815,6 @@ function submitReview(event) {
                     });
                 });
                 
-                // Edit functionality
                 document.querySelectorAll('.edit-review').forEach(btn => {
                     btn.addEventListener('click', function() {
                         const testimonialId = this.dataset.id;
@@ -2006,7 +1839,6 @@ function submitReview(event) {
         
         if (!testimonial) return;
         
-        // Create edit form
         const editForm = document.createElement('div');
         editForm.className = 'edit-testimonial-form';
         editForm.innerHTML = `
@@ -2033,13 +1865,11 @@ function submitReview(event) {
             </div>
         `;
         
-        // Find the testimonial element and replace it with the edit form
         const testimonialEl = document.querySelector(`.testimonial-item[data-id="${id}"]`);
         if (testimonialEl) {
             testimonialEl.innerHTML = '';
             testimonialEl.appendChild(editForm);
             
-            // Star rating functionality
             editForm.querySelectorAll('.star-rating i').forEach(star => {
                 star.addEventListener('click', function() {
                     const rating = parseInt(this.dataset.rating);
@@ -2050,7 +1880,6 @@ function submitReview(event) {
                 });
             });
             
-            // Save changes
             editForm.querySelector('.save-edit').addEventListener('click', function() {
                 const updatedTestimonial = {
                     ...testimonial,
@@ -2069,7 +1898,6 @@ function submitReview(event) {
                 showNotification('Review updated successfully!');
             });
             
-            // Cancel edit
             editForm.querySelector('.cancel-edit').addEventListener('click', function() {
                 loadTestimonials();
             });
@@ -2087,25 +1915,7 @@ function submitReview(event) {
             setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
-document.addEventListener('DOMContentLoaded', function() {
-    // Show all products when page loads
-    showAllProducts();
 
-    // Also show all products when "Shop Now" is clicked
-    document.getElementById('showAllProducts')?.addEventListener('click', showAllProducts);
-    
-    // Show all products when category changes
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', showAllProducts);
-    });
-
-    function showAllProducts() {
-        const products = document.querySelectorAll('.product-card');
-        products.forEach(product => {
-            product.style.display = 'block'; // Show all products
-        });
-    }
-});
     // Testimonial form submission
     if (testimonialForm) {
         testimonialForm.addEventListener('submit', function(e) {
@@ -2115,7 +1925,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('testimonialEmail')?.value.trim();
             const text = document.getElementById('testimonialText')?.value.trim();
             
-            // Validate form
             if (!text) {
                 alert('Please write your review');
                 return;
@@ -2131,7 +1940,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Create new testimonial
             const newTestimonial = {
                 id: Date.now().toString(),
                 name: name || 'Anonymous',
@@ -2142,32 +1950,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 adminKey: Math.random().toString(36).substr(2, 9)
             };
             
-            // Save to localStorage
             let testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
             testimonials.unshift(newTestimonial);
             localStorage.setItem('ozen-testimonials', JSON.stringify(testimonials));
             
-            // Send admin notification
             const adminSubject = `New Review Submission - ${name || 'Anonymous'}`;
             const adminBody = `Reviewer: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${currentRating} stars\n\nReview:\n${text}\n\nAdmin Key: ${newTestimonial.adminKey}`;
             window.open(`mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(adminSubject)}&body=${encodeURIComponent(adminBody)}`, '_blank');
             
-            // Reload testimonials
             loadTestimonials();
             
-            // Show thank you message if it exists
+            const thankYouMessage = document.querySelector('.thank-you-message');
             if (thankYouMessage) {
-                thankYouMessage.style.display = 'block';
+                thankYouMessage.classList.add('show');
                 setTimeout(() => {
-                    thankYouMessage.style.opacity = '1';
-                    setTimeout(() => {
-                        thankYouMessage.style.opacity = '0';
-                        setTimeout(() => thankYouMessage.style.display = 'none', 300);
-                    }, 2000);
-                }, 100);
+                    thankYouMessage.classList.remove('show');
+                }, 3000);
             }
             
-            // Reset form
             this.reset();
             currentRating = 0;
             updateStars();
@@ -2206,13 +2006,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (testimonialsContainer) {
         loadTestimonials();
     }
-});
-console.log("Total products found:", document.querySelectorAll('.product-card').length);
-document.querySelectorAll('.product-card').forEach((prod, i) => {
-    console.log(`Product ${i+1} visibility:`, 
-        window.getComputedStyle(prod).display, 
-        window.getComputedStyle(prod).visibility,
-        window.getComputedStyle(prod).opacity);
 });
     </script>
 </body>
