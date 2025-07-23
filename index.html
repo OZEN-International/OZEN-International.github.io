@@ -1568,46 +1568,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     
-    // Function to toggle menu
-    function toggleMenu() {
-        const isOpen = navMenu.classList.toggle('show');
-        
-        // Change icon
-        const icon = mobileMenuBtn.querySelector('i');
-        if (isOpen) {
-            icon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-        }
-    }
-    
-    // Add click event
     if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        
-        // Close menu when clicking on links
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-                mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-            });
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            // Change icon when menu is open/closed
+            const icon = this.querySelector('i');
+            if (navMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!navMenu.contains(event.target) && 
-            event.target !== mobileMenuBtn && 
-            !mobileMenuBtn.contains(event.target)) {
-            navMenu.classList.remove('show');
-            mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        }
-    });
 });
-document.getElementById('mobileMenuBtn').onclick = function() {
-    document.getElementById('navMenu').classList.toggle('show');
-};
-
   // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
