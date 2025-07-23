@@ -1059,6 +1059,33 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+          @media (max-width: 768px) {
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #00a19a;
+        cursor: pointer;
+    }
+}
     </style>
 </head>
 <body>
@@ -1068,9 +1095,9 @@
     <img src="https://github.com/OZEN-International/OZEN-International.github.io/blob/main/images/ozen-profile.jpg?raw=true" alt="OZEN Profile Picture">
     <h1>OZÈN Internationals</h1>
 </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+</button>
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Home</a></li>
@@ -1538,21 +1565,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     
+    // Function to toggle menu
+    function toggleMenu() {
+        const isOpen = navMenu.classList.toggle('show');
+        
+        // Change icon
+        const icon = mobileMenuBtn.querySelector('i');
+        if (isOpen) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    }
+    
+    // Add click event
     if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            // Change icon when menu is open/closed
-            const icon = this.querySelector('i');
-            if (navMenu.classList.contains('show')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
         });
     }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navMenu.contains(event.target) && 
+            event.target !== mobileMenuBtn && 
+            !mobileMenuBtn.contains(event.target)) {
+            navMenu.classList.remove('show');
+            mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
+    });
 });
+      console.log('Mobile button:', document.getElementById('mobileMenuBtn'));
+console.log('Nav menu:', document.getElementById('navMenu'));
 
   // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
