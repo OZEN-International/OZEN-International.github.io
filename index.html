@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OZÈN Internationals - Premium Health Supplements</title>
+    <meta name="description" content="OZÈN Internationals offers premium vitamins and supplements in Manchester. Shop Centrum, Vitabiotics, Perfectil and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://scontent.flhe4-2.fna.fbcdn.net/v/t39.30808-1/514491784_122108252372925808_6782522279358042270_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHxc88kFfxjveaGkugL9WbiuMNXlwotfSu4w1eXCi19KwTbzXYN3YatBTZzUIAQtvW4TbpDMSM5RL1TRIsGyQTm&_nc_ohc=D0xPqwxdV7EQ7kNvwEUld7K&_nc_oc=AdkNvHy-IhY5xZ5JK_us4YTSzGRLCZOeFyYFDoTuqScuppX2F1_dSve7bMtcAUTFcFVmEMFTOdbqp-t2y2amd-u-&_nc_zt=24&_nc_ht=scontent.flhe4-2.fna&_nc_gid=LY8pnq4P5NAr7XUs-O6I4Q&oh=00_AfSk7UhFUYEA6ESIit4cTKJNOYmMn2N8AJS31R6WiG2TDw&oe=6880592E">
+    <style>
+        :root {
+            --primary-color: #00a19a;
+            --secondary-color: #007d76;
+            --accent-color: #ff6b6b;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --white: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --transparent-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 161, 154, 0.7), rgba(0, 125, 118, 0.7)), 
+                        url('https://images.unsplash.com/photo-1631815588090-4a030d6c504a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+        }
+
+        .shop-now-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .shop-now-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Products Section */
+        .products {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background-color: var(--white);
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .products-container {
+            margin-bottom: 60px;
+        }
+
+        .product-tab {
+            display: none;
+        }
+
+        .product-tab.active {
+            display: block;
+        }
+
+        .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.product-card {
+    display: block !important; /* Force show all products */
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+}
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .product-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+            font-weight: 600;
+            min-height: 40px;
+        }
+
+       .product-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+        /* Add these new styles for the filter controls */
+        .product-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .filter-group select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 150px;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+        
+        .view-toggle button {
+            background: none;
+            border: 1px solid #00a19a;
+            color: #00a19a;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .view-toggle button.active {
+            background: #00a19a;
+            color: white;
+        }
+        
+        /* List view styles */
+        .list-view .products-grid {
+            display: block;
+        }
+        
+        .list-view .product-card {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .list-view .product-img {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+        }
+        
+        .list-view .product-info {
+            text-align: left;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        /* Back button styles */
+        .products-back-btn {
+            margin-bottom: 20px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Cart notification styles */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00a19a;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .cart-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Thank you message styles */
+        .thank-you-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #00a19a;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .thank-you-message.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            display: block;
+        }
+        
+        .thank-you-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* About Us Section */
+        .about {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Order Tracking Page */
+        .order-track-page {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .order-track-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .order-track-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .track-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .track-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .track-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .track-form button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .track-image {
+            margin: 30px 0;
+        }
+
+        .track-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+      .back-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-form-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0,161,154,0.1);
+            outline: none;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .rating-container span {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .star-rating {
+            color: #ddd;
+            font-size: 1.4rem;
+        }
+
+        .star-rating i {
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 3px;
+        }
+
+        .star-rating i.active,
+        .star-rating i:hover {
+            color: #FFD700;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,161,154,0.2);
+        }
+
+        /* Testimonials List */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-header h4 {
+            color: #333;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-left: auto;
+        }
+
+        .testimonial-content {
+            color: #444;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .testimonial-item .stars {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+/* Reviews Section */
+.reviews {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.review-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.reviewer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviewer-details h4 {
+    margin: 0;
+    color: #333;
+}
+
+.stars {
+    color: #FFD700;
+    margin-top: 5px;
+}
+
+.review-content p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.review-date {
+    color: #888;
+    font-size: 0.85rem;
+}
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .newsletter-section form {
+            display: flex;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .newsletter-section input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .newsletter-section button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        /* Cart Notification */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .cart-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Thank You Message */
+        .thank-you-message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #00a19a;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: none;
+}
+
+.thank-you-message.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    display: block;
+}
+
+.thank-you-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thank-you-content i {
+    font-size: 1.2rem;
+}
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--border-color);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Add to Cart Button Styles */
+.add-to-cart {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+       <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://scontent.flhe4-2.fna.fbcdn.net/v/t39.30808-1/514491784_122108252372925808_6782522279358042270_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHxc88kFfxjveaGkugL9WbiuMNXlwotfSu4w1eXCi19KwTbzXYN3YatBTZzUIAQtvW4TbpDMSM5RL1TRIsGyQTm&_nc_ohc=D0xPqwxdV7EQ7kNvwEUld7K&_nc_oc=AdkNvHy-IhY5xZ5JK_us4YTSzGRLCZOeFyYFDoTuqScuppX2F1_dSve7bMtcAUTFcFVmEMFTOdbqp-t2y2amd-u-&_nc_zt=24&_nc_ht=scontent.flhe4-2.fna&_nc_gid=LY8pnq4P5NAr7XUs-O6I4Q&oh=00_AfSk7UhFUYEA6ESIit4cTKJNOYmMn2N8AJS31R6WiG2TDw&oe=6880592E" alt="OZÈN Internationals Logo">
+                <h1>OZÈN Internationals</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#track-order" id="trackOrderLink">Track Orders</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Premium Health Supplements</h2>
+            <p>Discover our scientifically formulated vitamins and supplements to support your health and wellbeing. Quality you can trust, delivered to your door in Manchester.</p>
+            <button class="btn shop-now-btn" id="showAllProducts">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+<section class="products" id="products">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-container">
+            <!-- Multivitamins Tab -->
+            <div class="product-tab active" id="multivitamins">
+                <div class="products-grid">
+                    <!-- Centrum Advance Adult -->
+                    <div class="product-card" data-category="multivitamins" data-price="8.99">
+                        <div class="product-img">
+                            <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-advance-adults.png?auto=format" alt="Centrum Advance Adult">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Centrum Advance Adult (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</Rs></div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Centrum Advance 50+ -->
+                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                        <div class="product-img">
+                            <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-advance-50-adults.png?auto=format" alt="Centrum Advance 50+">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Centrum Advance 50+ (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Centrum Men -->
+                    <div class="product-card" data-category="multivitamins" data-price="9.99">
+                        <div class="product-img">
+                            <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-men.png?auto=format" alt="Centrum Men">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Centrum Men (30 tablets)</h3>
+                            <div class="product-price">Rs.3500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Centrum Women -->
+                    <div class="product-card" data-category="multivitamins" data-price="9.99">
+                        <div class="product-img">
+                            <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-women.png?auto=format" alt="Centrum Women">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Centrum Women (30 tablets)</h3>
+                            <div class="product-price">Rs.3500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Wellman Original -->
+                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/files/wellman_original_30_front_2D-CTWEL030T24WL1E_resized.png?v=1746718726" alt="Wellman Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wellman Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Wellman 50+ -->
+                    <div class="product-card" data-category="multivitamins" data-price="11.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/wellman50_resized_4e429c27-496e-4437-bc1d-31df05629e69.png?v=1595413955" alt="Wellman 50+">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wellman 50+ (30 tablets)</h3>
+                            <div class="product-price">Rs.4500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Wellwoman Original -->
+                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/wellwoman-originalusethisfront.png?v=1587029033" alt="Wellwoman Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wellwoman Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Wellwoman 50+ -->
+                    <div class="product-card" data-category="multivitamins" data-price="11.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/wellwoman_50_front_CTWEW030T5WL1ER_resized.png?v=1681393227" alt="Wellwoman 50+">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wellwoman 50+ (30 tablets)</h3>
+                            <div class="product-price">Rs.4500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregnacare Original -->
+                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/pregnacare_original_front_CTPRG030T32WLM1E_resized.png?v=1643804149" alt="Pregnacare Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pregnacare Original (30 tablets)</h3>
+                            <div class="product-price">Rs.5000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregnacare Max -->
+                    <div class="product-card" data-category="multivitamins" data-price="24.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/files/pregnacare_max_front_CTPRG084C4T33WL2ER_resized.png?v=1692882698" alt="Pregnacare Max">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pregnacare Max (84 tablets)</h3>
+                            <div class="product-price">Rs.12000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregnacare Breastfeeding -->
+                    <div class="product-card" data-category="multivitamins" data-price="24.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/pregnacare_breast_feeding_packshot_1028x1028_9c087962-0243-4374-8269-7d56920b4078.png?v=1635154988" alt="Pregnacare Breastfeeding">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pregnacare Breastfeeding (84 tablets)</h3>
+                            <div class="product-price">Rs.15000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregnacare Conception -->
+                    <div class="product-card" data-category="multivitamins" data-price="14.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/files/pregnacare_conception_front_CTPRG030T43WL2ER_resized.png?v=1692624578" alt="Pregnacare Conception">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pregnacare Conception (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Jointace Original -->
+                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceOriginalUpdatedPackFront_resized_bda0e242-ef69-4672-b75d-3aac09ea7d81.png?v=1656498482" alt="Jointace Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Jointace Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Jointace Collagen -->
+                    <div class="product-card" data-category="joint" data-price="12.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceCollagen__Front__CTJON030T12WL11E.png?v=1632735807" alt="Jointace Collagen">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Jointace Collagen (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Jointace Max -->
+                    <div class="product-card" data-category="joint" data-price="22.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceMaxUpdatedPackFront_resized.png?v=1656506716" alt="Jointace Max">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Jointace Max (84 capsules)</h3>
+                            <div class="product-price">Rs.9999</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Osteocare Original -->
+                    <div class="product-card" data-category="joint" data-price="9.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/osteocare_original_front_CTOST030T28WL1E_resized.png?v=1660306527" alt="Osteocare Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Osteocare Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Perfectil Original -->
+                    <div class="product-card" data-category="beauty" data-price="14.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectiloriginal_f716fb2b-e5ac-42d4-82a9-a7b00d7c4584.png?v=1604592256" alt="Perfectil Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Perfectil Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Perfectil Hair -->
+                    <div class="product-card" data-category="beauty" data-price="24.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/perfectil_hair_front_CTPER060T17WL1ER_resized.png?v=1672844538" alt="Perfectil Hair">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Perfectil Hair (60 tablets)</h3>
+                            <div class="product-price">Rs.7000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Perfectil Platinum Skin -->
+                    <div class="product-card" data-category="beauty" data-price="29.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectilcollagen-skin_62fd58cd-6b9f-474f-b071-257a0ea06092.png?v=1604591815" alt="Perfectil Platinum Skin">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Perfectil Platinum Skin (10 ampoules)</h3>
+                            <div class="product-price">Rs.7500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Perfectil Nails -->
+                    <div class="product-card" data-category="beauty" data-price="24.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectilnails_af2e3fbc-5f4d-40e1-a7e9-63f8a1e696d9.png?v=1604592182" alt="Perfectil Nails">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Perfectil Nails (60 tablets)</h3>
+                            <div class="product-price">Rs.7000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Feroglobin Liquid -->
+                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/feroglobin-liquid-front-CTFER200L7WL6E_resized.png?v=1652436155" alt="Feroglobin Liquid">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Feroglobin Liquid (200ml)</h3>
+                            <div class="product-price">Rs.2500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Wellbaby Multi Drops -->
+                    <div class="product-card" data-category="multivitamins" data-price="8.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/wellbaby_multivitamin_drops_front_CTWBY030L14WL5E_resized.png?v=1681899283" alt="Wellbaby Multi Drops">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wellbaby Multi Drops (30ml)</h3>
+                            <div class="product-price">Rs.1500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Ultra Vitamin C -->
+                    <div class="product-card" data-category="specialized" data-price="9.99">
+                        <div class="product-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0027/7263/1621/files/ultra_vitamin_C_front_CTSRC060T1WL9E_resized_large.png?v=1750949213" alt="Ultra Vitamin C">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ultra Vitamin C (60 tablets)</h3>
+                            <div class="product-price">Rs.6500</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Menopace Original -->
+                    <div class="product-card" data-category="specialized" data-price="10.99">
+                        <div class="product-img">
+                            <img src="https://www.vitabiotics.com/cdn/shop/products/Menopaceoriginal-pointyM.png?v=1600081542" alt="Menopace Original">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Menopace Original (30 tablets)</h3>
+                            <div class="product-price">Rs.4000</div>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            
+            <!-- Review Form -->
+            <div class="testimonial-form-container">
+<form class="testimonial-form" id="testimonialForm" onsubmit="submitReview(event)">
+                        <h3><i class="fas fa-edit"></i> Share Your Experience</h3>
+                    
+                    <div class="form-group">
+                        <input type="text" id="testimonialName" placeholder="Your Name" class="input-field" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="testimonialEmail" placeholder="Your Email" class="input-field" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="testimonialText" placeholder="Your experience with us..." rows="5" class="input-field" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="rating-container">
+                            <span>Your Rating:</span>
+                            <div class="star-rating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                      <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Submit Review
+    </button>
+</form>
+</div>
+            <!-- Testimonials List -->
+            <div class="testimonials-container" id="testimonialsContainer">
+                <!-- Sample testimonials will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Manchester, UK</p>
+                    <p><i class="fas fa-clock"></i> Monday-Thursday: 9AM-9PM<br>Saturday-Sunday: 9AM-9PM<br>Friday: Closed</p>
+                    <p><i class="fas fa-envelope"></i> zubi.inc.global@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for exclusive offers</p>
+            <form id="newsletterForm">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="privacy-note">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>OZÈN Internationals</h3>
+                    <p>Your trusted source for premium health supplements in Manchester.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#track-order">Track Orders</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="#products" data-tab="multivitamins">Multivitamins</a></li>
+                        <li><a href="#products" data-tab="pregnancy">Pregnancy Care</a></li>
+                        <li><a href="#products" data-tab="joint">Joint Care</a></li>
+                        <li><a href="#products" data-tab="beauty">Beauty Supplements</a></li>
+                        <li><a href="#products" data-tab="specialized">Specialized Formulas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Manchester, UK</li>
+                        <li>zubi.inc.global@gmail.com</li>
+                        <li>Mon-Thu, Sat-Sun: 9AM-9PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 OZÈN Internationals. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!--THANK YOU MESSAGE-->
+<div class="thank-you-message">
+    <div class="thank-you-content">
+        <i class="fas fa-check-circle"></i>
+        <p>Thank you for your review!</p>
+    </div>
+</div>
+    <!-- Cart Notification -->
+    <div class="cart-notification"></div>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+    }
+    // Function to show ALL products
+    function showAllProducts() {
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => {
+            product.style.display = 'block';
+            product.style.opacity = '1';
+            product.style.visibility = 'visible';
+            product.style.height = 'auto';
+        });
+        
+        // Remove any existing pagination controls if they exist
+        const paginationControls = document.querySelector('.pagination-controls');
+        if (paginationControls) {
+            paginationControls.remove();
+        }
+    }
+
+    // Show all products on page load
+    showAllProducts();
+
+    // Also show all products when these events occur:
+    document.getElementById('showAllProducts')?.addEventListener('click', showAllProducts);
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', showAllProducts);
+    });
+});
+
+  // Initialize cart
+    let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
+    
+    // Add cart icon to navigation if navMenu exists
+    if (navMenu) {
+        const cartIcon = document.createElement('li');
+        cartIcon.innerHTML = `
+            <a href="#cart" id="cartLink">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cartCount">${cart.reduce((total, item) => total + item.quantity, 0)}</span>
+            </a>
+        `;
+        navMenu.appendChild(cartIcon);
+    }
+
+    // Shop Now button functionality
+    const showAllProductsBtn = document.getElementById('showAllProducts');
+    if (showAllProductsBtn) {
+        showAllProductsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide hero section
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) heroSection.style.display = 'none';
+            
+            // Show products section
+            const productsSection = document.querySelector('.products');
+            if (productsSection) {
+                productsSection.style.display = 'block';
+                
+                // Scroll to products
+                window.scrollTo({
+                    top: productsSection.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Add back button above products if not already there
+                if (!document.querySelector('.products-back-btn')) {
+                    const backButton = document.createElement('button');
+                    backButton.className = 'back-btn products-back-btn';
+                    backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Home';
+                    backButton.addEventListener('click', function() {
+                        if (heroSection) heroSection.style.display = 'flex';
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                    
+                    productsSection.prepend(backButton);
+                }
+            }
+        });
+    }
+
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const productCard = this.closest('.product-card');
+        if (!productCard) return;
+        
+        // Generate a more reliable product ID using data attributes
+        const productId = productCard.dataset.category + '-' + 
+                         productCard.querySelector('.product-title').textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        
+        const productTitle = productCard.querySelector('.product-title');
+        const productPrice = productCard.querySelector('.product-price');
+        
+        if (!productTitle || !productPrice) {
+            console.error('Product title or price element not found');
+            return;
+        }
+        
+        const productName = productTitle.textContent.trim();
+        const priceText = productPrice.textContent.trim();
+        const priceValue = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
+        
+        // Check if product already in cart
+        const existingIndex = cart.findIndex(item => item.id === productId);
+        if (existingIndex !== -1) {
+            cart[existingIndex].quantity += 1;
+        } else {
+            cart.push({
+                id: productId,
+                name: productName,
+                price: priceValue, // Store as number instead of text
+                quantity: 1
+            });
+        }
+        
+        try {
+            localStorage.setItem('ozen-cart', JSON.stringify(cart));
+        } catch (e) {
+            console.error('Failed to save cart to localStorage:', e);
+        }
+        
+        updateCartCount();
+        showCartNotification(`${productName} added to cart!`);
+    });
+});
+
+// Update cart count function
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+        cartCountElement.textContent = count;
+        // Show/hide cart count based on items
+        cartCountElement.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+}
+
+// Show cart notification function
+function showCartNotification(message) {
+    const notification = document.querySelector('.cart-notification');
+    if (!notification) {
+        console.error('Notification element not found');
+        return;
+    }
+    
+    notification.textContent = message;
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+}
+
+// Cart link click handler
+document.getElementById('cartLink')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    
+    // Prepare WhatsApp message with grouped quantities
+    let message = "Hello OZÈN Internationals,\n\nI would like to place an order:\n\n";
+    let total = 0;
+
+    // Group products by ID to combine quantities
+    const productGroups = {};
+    cart.forEach(item => {
+        if (!productGroups[item.id]) {
+            productGroups[item.id] = {
+                name: item.name,
+                price: item.price, // Already stored as number
+                quantity: 0
+            };
+        }
+        productGroups[item.id].quantity += item.quantity;
+    });
+
+    // Add grouped items to message
+    Object.values(productGroups).forEach(item => {
+        const subtotal = item.price * item.quantity;
+        message += `➤ ${item.name}\n   Quantity: ${item.quantity}\n   Price: £${item.price.toFixed(2)}\n   Subtotal: £${subtotal.toFixed(2)}\n\n`;
+        total += subtotal;
+    });
+
+    message += `\nTOTAL: £${total.toFixed(2)}\n\n`;
+    message += "Delivery Details:\nName: \nAddress: \nPhone: \n\nPlease confirm my order. Thank you!";
+    
+    // Clear cart only after successful message creation
+    try {
+        cart = [];
+        localStorage.setItem('ozen-cart', JSON.stringify(cart));
+        updateCartCount();
+        
+        // Open WhatsApp with prefilled message
+        window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
+    } catch (e) {
+        console.error('Failed to process order:', e);
+        alert('There was an error processing your order. Please try again.');
+    }
+});
+
+// Initialize cart count on page load
+updateCartCount();
+    // Track order page functionality
+    const trackOrderLink = document.getElementById('trackOrderLink');
+    const orderTrackPage = document.querySelector('.order-track-page');
+    const backBtn = document.querySelector('.back-btn');
+    
+    if (trackOrderLink && orderTrackPage) {
+        trackOrderLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show track order page
+            orderTrackPage.style.display = 'block';
+        });
+    }
+    
+    if (backBtn && orderTrackPage) {
+        backBtn.addEventListener('click', function() {
+            // Show all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'block';
+            });
+            
+            // Hide track order page
+            orderTrackPage.style.display = 'none';
+        });
+    }
+    
+    // Track order form submission
+    const orderTrackForm = document.getElementById('orderTrackForm');
+    if (orderTrackForm) {
+        orderTrackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderId = this.querySelector('input[type="text"]')?.value;
+            const email = this.querySelector('input[type="email"]')?.value;
+            
+            if (!orderId || !email) {
+                alert('Please fill all fields');
+                return;
+            }
+            
+            // Send email
+            const subject = `Order Tracking Request - ${orderId}`;
+            const body = `Order ID: ${orderId}\nCustomer Email: ${email}`;
+            window.location.href = `mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success message
+            alert('Your request has been submitted. We will respond soon!');
+            this.reset();
+        });
+    }
+        document.getElementById('testimonialForm')?.addEventListener('submit', function(e) {
+    submitReview(e);
+});
+function submitReview(event) {
+    event.preventDefault(); // This prevents the page from reloading
+    
+    const form = event.target;
+    const name = document.getElementById('testimonialName')?.value.trim();
+    const email = document.getElementById('testimonialEmail')?.value.trim();
+    const text = document.getElementById('testimonialText')?.value.trim();
+    
+    // Validate form
+    if (!text) {
+        alert('Please write your review');
+        return;
+    }
+    
+    if (currentRating === 0) {
+        alert('Please select a rating');
+        return;
+    }
+    
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    // Create new testimonial
+    const newTestimonial = {
+        id: Date.now().toString(),
+        name: name || 'Anonymous',
+        email: email || '',
+        text: text,
+        rating: currentRating,
+        date: new Date().toISOString(),
+        adminKey: Math.random().toString(36).substr(2, 9)
+    };
+    
+    // Save to localStorage
+    let testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
+    testimonials.unshift(newTestimonial);
+    localStorage.setItem('ozen-testimonials', JSON.stringify(testimonials));
+    
+    // Show thank you message
+    const thankYouMessage = document.querySelector('.thank-you-message');
+    if (thankYouMessage) {
+        thankYouMessage.classList.add('show');
+        setTimeout(() => {
+            thankYouMessage.classList.remove('show');
+        }, 3000);
+    }
+    
+    // Reload testimonials
+    loadTestimonials();
+    
+    // Reset form
+    form.reset();
+    currentRating = 0;
+    updateStars();
+}
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.name?.value.trim();
+            const email = this.email?.value.trim();
+            const subject = this.subject?.value.trim();
+            const message = this.message?.value.trim();
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                alert('Please fill all required fields');
+                return;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Send email
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            window.location.href = `mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success message
+            alert('Thank you for your message! We will respond soon.');
+            this.reset();
+        });
+    }
+
+    // List/Grid view toggle
+    const gridViewBtn = document.getElementById('gridView');
+    const listViewBtn = document.getElementById('listView');
+    const productsGrid = document.querySelector('.products-grid');
+
+    if (gridViewBtn && listViewBtn && productsGrid) {
+        gridViewBtn.addEventListener('click', function() {
+            productsGrid.classList.remove('list-view');
+            gridViewBtn.classList.add('active');
+            listViewBtn.classList.remove('active');
+        });
+
+        listViewBtn.addEventListener('click', function() {
+            productsGrid.classList.add('list-view');
+            listViewBtn.classList.add('active');
+            gridViewBtn.classList.remove('active');
+        });
+    }
+
+    // Testimonials functionality
+    const testimonialForm = document.getElementById('testimonialForm');
+    const testimonialsContainer = document.getElementById('testimonialsContainer');
+    const thankYouMessage = document.querySelector('.thank-you-message');
+    let currentRating = 0;
+    
+    // Load testimonials from localStorage
+    function loadTestimonials() {
+        const testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
+        const isAdmin = prompt("Enter admin password:") === "JDR";
+        
+        if (testimonialsContainer) {
+            testimonialsContainer.innerHTML = '';
+            
+            if (testimonials.length === 0) {
+                testimonialsContainer.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+                return;
+            }
+            
+            testimonials.forEach(testimonial => {
+                const testimonialEl = document.createElement('div');
+                testimonialEl.className = 'testimonial-item';
+                testimonialEl.dataset.id = testimonial.id;
+                testimonialEl.innerHTML = `
+                    <div class="testimonial-header">
+                        <h4>${testimonial.name}</h4>
+                        <div class="stars">
+                            ${'<i class="fas fa-star"></i>'.repeat(testimonial.rating)}
+                            ${'<i class="far fa-star"></i>'.repeat(5 - testimonial.rating)}
+                        </div>
+                        <span class="testimonial-date">${formatDate(testimonial.date)}</span>
+                        ${isAdmin ? `<button class="edit-review" data-id="${testimonial.id}"><i class="fas fa-edit"></i></button>
+                        <button class="delete-review" data-id="${testimonial.id}"><i class="fas fa-trash"></i></button>` : ''}
+                    </div>
+                    <div class="testimonial-content">
+                        <p>${testimonial.text}</p>
+                    </div>
+                `;
+                testimonialsContainer.appendChild(testimonialEl);
+            });
+            
+            if (isAdmin) {
+                // Delete functionality
+                document.querySelectorAll('.delete-review').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const testimonialId = this.dataset.id;
+                        if (confirm('Are you sure you want to delete this review?')) {
+                            deleteTestimonial(testimonialId);
+                        }
+                    });
+                });
+                
+                // Edit functionality
+                document.querySelectorAll('.edit-review').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const testimonialId = this.dataset.id;
+                        editTestimonial(testimonialId);
+                    });
+                });
+            }
+        }
+    }
+
+    function deleteTestimonial(id) {
+        let testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
+        testimonials = testimonials.filter(testimonial => testimonial.id !== id);
+        localStorage.setItem('ozen-testimonials', JSON.stringify(testimonials));
+        loadTestimonials();
+        showNotification('Review deleted successfully!');
+    }
+
+    function editTestimonial(id) {
+        const testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
+        const testimonial = testimonials.find(t => t.id === id);
+        
+        if (!testimonial) return;
+        
+        // Create edit form
+        const editForm = document.createElement('div');
+        editForm.className = 'edit-testimonial-form';
+        editForm.innerHTML = `
+            <h3>Edit Review</h3>
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" id="editName" value="${testimonial.name}" class="input-field">
+            </div>
+            <div class="form-group">
+                <label>Review:</label>
+                <textarea id="editText" class="input-field">${testimonial.text}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Rating:</label>
+                <div class="star-rating">
+                    ${Array(5).fill().map((_, i) => `
+                        <i class="${i < testimonial.rating ? 'fas' : 'far'} fa-star" data-rating="${i+1}"></i>
+                    `).join('')}
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="cancel-edit">Cancel</button>
+                <button class="save-edit">Save Changes</button>
+            </div>
+        `;
+        
+        // Find the testimonial element and replace it with the edit form
+        const testimonialEl = document.querySelector(`.testimonial-item[data-id="${id}"]`);
+        if (testimonialEl) {
+            testimonialEl.innerHTML = '';
+            testimonialEl.appendChild(editForm);
+            
+            // Star rating functionality
+            editForm.querySelectorAll('.star-rating i').forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.dataset.rating);
+                    editForm.querySelectorAll('.star-rating i').forEach((s, i) => {
+                        s.classList.toggle('fas', i < rating);
+                        s.classList.toggle('far', i >= rating);
+                    });
+                });
+            });
+            
+            // Save changes
+            editForm.querySelector('.save-edit').addEventListener('click', function() {
+                const updatedTestimonial = {
+                    ...testimonial,
+                    name: editForm.querySelector('#editName').value.trim(),
+                    text: editForm.querySelector('#editText').value.trim(),
+                    rating: editForm.querySelectorAll('.star-rating .fas').length,
+                    date: new Date().toISOString()
+                };
+                
+                const updatedTestimonials = testimonials.map(t => 
+                    t.id === id ? updatedTestimonial : t
+                );
+                
+                localStorage.setItem('ozen-testimonials', JSON.stringify(updatedTestimonials));
+                loadTestimonials();
+                showNotification('Review updated successfully!');
+            });
+            
+            // Cancel edit
+            editForm.querySelector('.cancel-edit').addEventListener('click', function() {
+                loadTestimonials();
+            });
+        }
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Show all products when page loads
+    showAllProducts();
+
+    // Also show all products when "Shop Now" is clicked
+    document.getElementById('showAllProducts')?.addEventListener('click', showAllProducts);
+    
+    // Show all products when category changes
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', showAllProducts);
+    });
+
+    function showAllProducts() {
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => {
+            product.style.display = 'block'; // Show all products
+        });
+    }
+});
+    // Testimonial form submission
+    if (testimonialForm) {
+        testimonialForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('testimonialName')?.value.trim();
+            const email = document.getElementById('testimonialEmail')?.value.trim();
+            const text = document.getElementById('testimonialText')?.value.trim();
+            
+            // Validate form
+            if (!text) {
+                alert('Please write your review');
+                return;
+            }
+            
+            if (currentRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+            
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Create new testimonial
+            const newTestimonial = {
+                id: Date.now().toString(),
+                name: name || 'Anonymous',
+                email: email || '',
+                text: text,
+                rating: currentRating,
+                date: new Date().toISOString(),
+                adminKey: Math.random().toString(36).substr(2, 9)
+            };
+            
+            // Save to localStorage
+            let testimonials = JSON.parse(localStorage.getItem('ozen-testimonials')) || [];
+            testimonials.unshift(newTestimonial);
+            localStorage.setItem('ozen-testimonials', JSON.stringify(testimonials));
+            
+            // Send admin notification
+            const adminSubject = `New Review Submission - ${name || 'Anonymous'}`;
+            const adminBody = `Reviewer: ${name || 'Anonymous'}\nEmail: ${email || 'Not provided'}\nRating: ${currentRating} stars\n\nReview:\n${text}\n\nAdmin Key: ${newTestimonial.adminKey}`;
+            window.open(`mailto:zubi.inc.global@gmail.com?subject=${encodeURIComponent(adminSubject)}&body=${encodeURIComponent(adminBody)}`, '_blank');
+            
+            // Reload testimonials
+            loadTestimonials();
+            
+            // Show thank you message if it exists
+            if (thankYouMessage) {
+                thankYouMessage.style.display = 'block';
+                setTimeout(() => {
+                    thankYouMessage.style.opacity = '1';
+                    setTimeout(() => {
+                        thankYouMessage.style.opacity = '0';
+                        setTimeout(() => thankYouMessage.style.display = 'none', 300);
+                    }, 2000);
+                }, 100);
+            }
+            
+            // Reset form
+            this.reset();
+            currentRating = 0;
+            updateStars();
+        });
+    }
+    
+    // Format date function
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+    
+    // Star rating functionality
+    function updateStars() {
+        const stars = document.querySelectorAll('.star-rating i');
+        if (stars) {
+            stars.forEach((star, index) => {
+                star.classList.toggle('fas', index < currentRating);
+                star.classList.toggle('far', index >= currentRating);
+            });
+        }
+    }
+    
+    // Initialize star rating if it exists
+    const starRating = document.querySelector('.star-rating');
+    if (starRating) {
+        starRating.addEventListener('click', (e) => {
+            if (e.target.tagName === 'I') {
+                currentRating = parseInt(e.target.dataset.rating);
+                updateStars();
+            }
+        });
+    }
+    
+    // Initial load of testimonials if container exists
+    if (testimonialsContainer) {
+        loadTestimonials();
+    }
+});
+console.log("Total products found:", document.querySelectorAll('.product-card').length);
+document.querySelectorAll('.product-card').forEach((prod, i) => {
+    console.log(`Product ${i+1} visibility:`, 
+        window.getComputedStyle(prod).display, 
+        window.getComputedStyle(prod).visibility,
+        window.getComputedStyle(prod).opacity);
+});
+    </script>
+</body>
+</html>
