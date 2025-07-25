@@ -1146,27 +1146,28 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+  <!-- Update your hero section HTML to this: -->
+<section class="hero" id="home">
     <div class="hero-content">        
-       <div class="category-buttons-container">
-    <div class="category-button women-category">
-        <div class="category-image" style="background-image: url('https://media.istockphoto.com/id/518175173/photo/portrait-of-a-woman-lost-in-thought.jpg?s=170667a&w=0&k=20&c=ixBOe3L1GORSekOuTHEk2loXhnK6OBpv2KSIV-PUrHM=')"></div>
-        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
-    </div>
-    
-    <div class="category-button men-category">
-        <div class="category-image" style="background-image: url('https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"></div>
-        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
-    </div>
-    
-    <div class="category-button baby-category">
-        <div class="category-image" style="background-image: url('https://t3.ftcdn.net/jpg/08/23/79/62/360_F_823796204_QAdHcwvNdKcVA1WKLUJwX0GNPAdvDck8.jpg')"></div>
-        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
-    </div>
-</div>
+        <div class="category-buttons-container">
+            <div class="category-button women-category">
+                <div class="category-image" style="background-image: url('https://media.istockphoto.com/id/518175173/photo/portrait-of-a-woman-lost-in-thought.jpg?s=170667a&w=0&k=20&c=ixBOe3L1GORSekOuTHEk2loXhnK6OBpv2KSIV-PUrHM=')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
+            </div>
+            
+            <div class="category-button men-category">
+                <div class="category-image" style="background-image: url('https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
+            </div>
+            
+            <div class="category-button baby-category">
+                <div class="category-image" style="background-image: url('https://t3.ftcdn.net/jpg/08/23/79/62/360_F_823796204_QAdHcwvNdKcVA1WKLUJwX0GNPAdvDck8.jpg')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
+            </div>
+        </div>
     </div>
 </section>
+
 
     <!-- Products Section -->
 <section class="products" id="products">
@@ -1717,18 +1718,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-// Add this function to your existing script
-function scrollToCategory(category) {
-    const productsSection = document.getElementById('products');
-    if (productsSection) {
-        productsSection.scrollIntoView({ behavior: 'smooth' });
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile view handling
+    if (window.innerWidth <= 768) {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            const mobileButtons = document.createElement('div');
+            mobileButtons.className = 'mobile-category-buttons';
+            mobileButtons.innerHTML = `
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
+                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
+            `;
+            
+            const categoryButtonsContainer = document.querySelector('.category-buttons-container');
+            if (categoryButtonsContainer) {
+                categoryButtonsContainer.insertAdjacentElement('afterend', mobileButtons);
+            }
+        }
     }
-}
-           // Add this function to your existing JavaScript
+});
+
+// Enhanced scrollToProduct function
 function scrollToProduct(productTitle) {
     const products = document.querySelectorAll('.product-title');
     let targetProduct = null;
     
+    // Find the matching product
     products.forEach(product => {
         if (product.textContent.trim() === productTitle) {
             targetProduct = product.closest('.product-card');
@@ -1741,23 +1757,19 @@ function scrollToProduct(productTitle) {
             behavior: 'smooth'
         });
         
-        // Highlight the product
-        targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
-        targetProduct.style.transition = 'box-shadow 0.3s ease';
-        
-        // Remove highlight after 3 seconds
+        // Wait for scroll to complete then highlight product
         setTimeout(() => {
-            targetProduct.style.boxShadow = '';
-        }, 3000);
+            // Highlight the product
+            targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
+            targetProduct.style.transition = 'box-shadow 0.3s ease';
+            
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                targetProduct.style.boxShadow = '';
+            }, 3000);
+        }, 500);
     }
 }
-
-// Update your category button onclick handlers to use this function
-// Change these lines in your HTML:
-// onclick="scrollToCategory('wellwoman')" → onclick="scrollToProduct('Wellwoman Original (30 tablets)')"
-// onclick="scrollToCategory('wellman')" → onclick="scrollToProduct('Wellman Original (30 tablets)')"
-// onclick="scrollToCategory('wellbaby')" → onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')"
-    // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
     // Add cart icon to navigation if navMenu exists
@@ -2216,7 +2228,7 @@ function scrollToProduct(productTitle) {
         loadTestimonials();
     }
 });
-         // Add this to your existing JavaScript
+    // Update your track order form handler
 document.getElementById('trackOrderForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -2224,6 +2236,7 @@ document.getElementById('trackOrderForm')?.addEventListener('submit', function(e
     const email = document.getElementById('trackEmail').value.trim();
     const orderNumber = document.getElementById('trackOrderNumber').value.trim();
     
+    // Validation
     if (!name || !email || !orderNumber) {
         alert('Please fill all required fields');
         return;
@@ -2234,34 +2247,41 @@ document.getElementById('trackOrderForm')?.addEventListener('submit', function(e
         return;
     }
     
-    const message = `Order Tracking Request\n\nName: ${name}\nEmail: ${email}\nOrder Number: ${orderNumber}\n\nPlease provide an update on my order status.`;
+    // Create the WhatsApp message
+    const message = `*Order Tracking Request*%0A%0A` +
+                    `*Name:* ${encodeURIComponent(name)}%0A` +
+                    `*Email:* ${encodeURIComponent(email)}%0A` +
+                    `*Order Number:* ${encodeURIComponent(orderNumber)}%0A%0A` +
+                    `Please provide an update on my order status.`;
     
-    window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
+    // Open WhatsApp with prefilled message
+    window.open(`https://wa.me/447557590003?text=${message}`, '_blank');
     
     // Reset form
     this.reset();
     
-    // Show thank you message
+    // Show confirmation
     const thankYouMessage = document.querySelector('.thank-you-message');
     if (thankYouMessage) {
-        thankYouMessage.textContent = 'Your tracking request has been submitted!';
+        thankYouMessage.querySelector('p').textContent = 'Redirecting to WhatsApp...';
         thankYouMessage.classList.add('show');
+        
         setTimeout(() => {
             thankYouMessage.classList.remove('show');
         }, 3000);
     }
 });
     </script>
-         <!-- Order Tracking Page -->
+<!-- Update your order track page section: -->
 <section class="order-track-page" id="track-order">
     <div class="container">
         <div class="order-track-container">
             <h2>Track Your Order</h2>
             <div class="track-form">
                 <form id="trackOrderForm">
-                    <input type="text" id="trackName" placeholder="Your Name" required>
-                    <input type="email" id="trackEmail" placeholder="Your Email" required>
-                    <input type="text" id="trackOrderNumber" placeholder="Order Number" required>
+                    <input type="text" id="trackName" placeholder="Your Full Name" required>
+                    <input type="email" id="trackEmail" placeholder="Your Email Address" required>
+                    <input type="text" id="trackOrderNumber" placeholder="Your Order Number" required>
                     <button type="submit">Track Order</button>
                 </form>
             </div>
