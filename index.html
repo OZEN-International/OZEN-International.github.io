@@ -115,63 +115,89 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 161, 154, 0.7), rgba(0, 125, 118, 0.7)), 
-                        url('https://images.unsplash.com/photo-1631815588090-4a030d6c504a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+       /* Add this CSS to your existing styles */
+.category-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 30px 0;
+    width: 100%;
+}
 
-        .hero-content {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 8px;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--dark-gray);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-        }
+.category-button {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
+.category-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--dark-gray);
-        }
+.category-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
-        .shop-now-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 16px;
-            transition: all 0.3s;
-            margin-top: 20px;
-        }
+.category-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
 
-        .shop-now-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+.category-button .shop-now-btn {
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    margin-top: 0;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
 
+.category-button .shop-now-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .category-buttons-container {
+        flex-direction: column;
+    }
+    
+    .men-category, .baby-category {
+        display: none;
+    }
+    
+    .mobile-category-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .mobile-category-buttons .shop-now-btn {
+        width: 100%;
+    }
+}
         /* Section Title */
         .section-title {
             text-align: center;
@@ -1085,12 +1111,30 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h2>Premium Health Supplements</h2>
-            <p>Discover our scientifically formulated vitamins and supplements to support your health and wellbeing. Quality you can trust, delivered to your door in Manchester.</p>
-            <button class="btn shop-now-btn" id="showAllProducts">Shop Now</button>
+    <div class="hero-content">
+        <h2>Premium Health Supplements</h2>
+        <p>Discover our scientifically formulated vitamins and supplements to support your health and wellbeing. Quality you can trust, delivered to your door in Manchester.</p>
+        
+        <div class="category-buttons-container">
+            <div class="category-button women-category">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellwoman')">Shop for Women</button>
+            </div>
+            
+            <div class="category-button men-category">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellman')">Shop for Men</button>
+            </div>
+            
+            <div class="category-button baby-category">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellbaby')">Shop for Baby</button>
+            </div>
         </div>
-    </section>
+        
+        <button class="btn shop-now-btn" id="showAllProducts">Shop All Products</button>
+    </div>
+</section>
 
     <!-- Products Section -->
 <section class="products" id="products">
@@ -1621,7 +1665,40 @@
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
-
+           // Mobile view handling
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            const mobileButtons = document.createElement('div');
+            mobileButtons.className = 'mobile-category-buttons';
+            mobileButtons.innerHTML = `
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellwoman')">Shop for Women</button>
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellman')">Shop for Men</button>
+                <button class="btn shop-now-btn" onclick="scrollToCategory('wellbaby')">Shop for Baby</button>
+            `;
+            
+            const categoryButtonsContainer = document.querySelector('.category-buttons-container');
+            if (categoryButtonsContainer) {
+                categoryButtonsContainer.insertAdjacentElement('afterend', mobileButtons);
+            }
+        }
+    }
+});
+// Add this function to your existing script
+function scrollToCategory(category) {
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // If you have category tabs, you can activate the relevant tab here
+        // For example:
+        // document.querySelector(`.category-btn[data-category="${category}"]`).click();
+        
+        // For now, just scroll to the section
+        // You might need to add more specific logic based on your category system
+    }
+}
     // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
