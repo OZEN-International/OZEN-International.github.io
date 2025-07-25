@@ -1686,7 +1686,7 @@
     <div class="cart-notification"></div>
 <script>
 
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -1698,27 +1698,7 @@
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
-           // Mobile view handling
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) {
-        const heroContent = document.querySelector('.hero-content');
-        if (heroContent) {
-            const mobileButtons = document.createElement('div');
-            mobileButtons.className = 'mobile-category-buttons';
-            mobileButtons.innerHTML = `
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellwoman')">Shop for Women</button>
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellman')">Shop for Men</button>
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellbaby')">Shop for Baby</button>
-            `;
-            
-            const categoryButtonsContainer = document.querySelector('.category-buttons-container');
-            if (categoryButtonsContainer) {
-                categoryButtonsContainer.insertAdjacentElement('afterend', mobileButtons);
-            }
-        }
-    }
-});
-document.addEventListener('DOMContentLoaded', function() {
+
     // Mobile view handling
     if (window.innerWidth <= 768) {
         const heroContent = document.querySelector('.hero-content');
@@ -1737,39 +1717,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-});
 
-// Enhanced scrollToProduct function
-function scrollToProduct(productTitle) {
-    const products = document.querySelectorAll('.product-title');
-    let targetProduct = null;
-    
-    // Find the matching product
-    products.forEach(product => {
-        if (product.textContent.trim() === productTitle) {
-            targetProduct = product.closest('.product-card');
-        }
-    });
-    
-    if (targetProduct) {
-        // First scroll to products section
-        document.querySelector('#products').scrollIntoView({
-            behavior: 'smooth'
-        });
-        
-        // Wait for scroll to complete then highlight product
-        setTimeout(() => {
-            // Highlight the product
-            targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
-            targetProduct.style.transition = 'box-shadow 0.3s ease';
-            
-            // Remove highlight after 3 seconds
-            setTimeout(() => {
-                targetProduct.style.boxShadow = '';
-            }, 3000);
-        }, 500);
-    }
-}
+    // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
     // Add cart icon to navigation if navMenu exists
@@ -1822,17 +1771,6 @@ function scrollToProduct(productTitle) {
         aboutLink.addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('#about').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // Shop Now button functionality
-    const showAllProductsBtn = document.getElementById('showAllProducts');
-    if (showAllProductsBtn) {
-        showAllProductsBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#products').scrollIntoView({
                 behavior: 'smooth'
             });
         });
@@ -2227,51 +2165,84 @@ function scrollToProduct(productTitle) {
     if (testimonialsContainer) {
         loadTestimonials();
     }
-});
-    // Update your track order form handler
-document.getElementById('trackOrderForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('trackName').value.trim();
-    const email = document.getElementById('trackEmail').value.trim();
-    const orderNumber = document.getElementById('trackOrderNumber').value.trim();
-    
-    // Validation
-    if (!name || !email || !orderNumber) {
-        alert('Please fill all required fields');
-        return;
-    }
-    
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-    
-    // Create the WhatsApp message
-    const message = `*Order Tracking Request*%0A%0A` +
-                    `*Name:* ${encodeURIComponent(name)}%0A` +
-                    `*Email:* ${encodeURIComponent(email)}%0A` +
-                    `*Order Number:* ${encodeURIComponent(orderNumber)}%0A%0A` +
-                    `Please provide an update on my order status.`;
-    
-    // Open WhatsApp with prefilled message
-            window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
-    
-    // Reset form
-    this.reset();
-    
-    // Show confirmation
-    const thankYouMessage = document.querySelector('.thank-you-message');
-    if (thankYouMessage) {
-        thankYouMessage.querySelector('p').textContent = 'Redirecting to WhatsApp...';
-        thankYouMessage.classList.add('show');
+
+    // Track order form submission
+    document.getElementById('trackOrderForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        setTimeout(() => {
-            thankYouMessage.classList.remove('show');
-        }, 3000);
-    }
+        const name = document.getElementById('trackName').value.trim();
+        const email = document.getElementById('trackEmail').value.trim();
+        const orderNumber = document.getElementById('trackOrderNumber').value.trim();
+        
+        // Validation
+        if (!name || !email || !orderNumber) {
+            alert('Please fill all required fields');
+            return;
+        }
+        
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // Create the WhatsApp message
+        const message = `*Order Tracking Request*%0A%0A` +
+                        `*Name:* ${encodeURIComponent(name)}%0A` +
+                        `*Email:* ${encodeURIComponent(email)}%0A` +
+                        `*Order Number:* ${encodeURIComponent(orderNumber)}%0A%0A` +
+                        `Please provide an update on my order status.`;
+        
+        // Open WhatsApp with prefilled message
+        window.open(`https://wa.me/447557590003?text=${message}`, '_blank');
+        
+        // Reset form
+        this.reset();
+        
+        // Show confirmation
+        const thankYouMessage = document.querySelector('.thank-you-message');
+        if (thankYouMessage) {
+            thankYouMessage.querySelector('p').textContent = 'Redirecting to WhatsApp...';
+            thankYouMessage.classList.add('show');
+            
+            setTimeout(() => {
+                thankYouMessage.classList.remove('show');
+            }, 3000);
+        }
+    });
 });
-    </script>
+
+// Enhanced scrollToProduct function (must be in global scope)
+function scrollToProduct(productTitle) {
+    const products = document.querySelectorAll('.product-title');
+    let targetProduct = null;
+    
+    // Find the matching product
+    products.forEach(product => {
+        if (product.textContent.trim() === productTitle) {
+            targetProduct = product.closest('.product-card');
+        }
+    });
+    
+    if (targetProduct) {
+        // First scroll to products section
+        document.querySelector('#products').scrollIntoView({
+            behavior: 'smooth'
+        });
+        
+        // Wait for scroll to complete then highlight product
+        setTimeout(() => {
+            // Highlight the product
+            targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
+            targetProduct.style.transition = 'box-shadow 0.3s ease';
+            
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                targetProduct.style.boxShadow = '';
+            }, 3000);
+        }, 500);
+    }
+}
+</script>
 <!-- Update your order track page section: -->
 <section class="order-track-page" id="track-order">
     <div class="container">
