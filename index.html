@@ -116,6 +116,43 @@
         }
 
        /* Add this CSS to your existing styles */
+             /* Add this to your CSS */
+.btn.shop-now-btn {
+    background: linear-gradient(145deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn.shop-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.btn.shop-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn.shop-now-btn:active {
+    transform: translateY(0);
+}
 .category-buttons-container {
     display: flex;
     justify-content: space-between;
@@ -1112,24 +1149,22 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
     <div class="hero-content">        
-        <div class="category-buttons-container">
-            <div class="category-button women-category">
-                <div class="category-image" style="background-image: url('https://media.istockphoto.com/id/518175173/photo/portrait-of-a-woman-lost-in-thought.jpg?s=170667a&w=0&k=20&c=ixBOe3L1GORSekOuTHEk2loXhnK6OBpv2KSIV-PUrHM=')"></div>
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellwoman')">Shop for Women</button>
-            </div>
-            
-            <div class="category-button men-category">
-                <div class="category-image" style="background-image: url('https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"></div>
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellman')">Shop for Men</button>
-            </div>
-            
-            <div class="category-button baby-category">
-                <div class="category-image" style="background-image: url('https://t3.ftcdn.net/jpg/08/23/79/62/360_F_823796204_QAdHcwvNdKcVA1WKLUJwX0GNPAdvDck8.jpg')"></div>
-                <button class="btn shop-now-btn" onclick="scrollToCategory('wellbaby')">Shop for Baby</button>
-            </div>
-        </div>
-        
-        <button class="btn shop-now-btn" id="showAllProducts">Shop All Products</button>
+       <div class="category-buttons-container">
+    <div class="category-button women-category">
+        <div class="category-image" style="background-image: url('https://media.istockphoto.com/id/518175173/photo/portrait-of-a-woman-lost-in-thought.jpg?s=170667a&w=0&k=20&c=ixBOe3L1GORSekOuTHEk2loXhnK6OBpv2KSIV-PUrHM=')"></div>
+        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
+    </div>
+    
+    <div class="category-button men-category">
+        <div class="category-image" style="background-image: url('https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')"></div>
+        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
+    </div>
+    
+    <div class="category-button baby-category">
+        <div class="category-image" style="background-image: url('https://t3.ftcdn.net/jpg/08/23/79/62/360_F_823796204_QAdHcwvNdKcVA1WKLUJwX0GNPAdvDck8.jpg')"></div>
+        <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
+    </div>
+</div>
     </div>
 </section>
 
@@ -1687,15 +1722,41 @@ function scrollToCategory(category) {
     const productsSection = document.getElementById('products');
     if (productsSection) {
         productsSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // If you have category tabs, you can activate the relevant tab here
-        // For example:
-        // document.querySelector(`.category-btn[data-category="${category}"]`).click();
-        
-        // For now, just scroll to the section
-        // You might need to add more specific logic based on your category system
     }
 }
+           // Add this function to your existing JavaScript
+function scrollToProduct(productTitle) {
+    const products = document.querySelectorAll('.product-title');
+    let targetProduct = null;
+    
+    products.forEach(product => {
+        if (product.textContent.trim() === productTitle) {
+            targetProduct = product.closest('.product-card');
+        }
+    });
+    
+    if (targetProduct) {
+        // First scroll to products section
+        document.querySelector('#products').scrollIntoView({
+            behavior: 'smooth'
+        });
+        
+        // Highlight the product
+        targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
+        targetProduct.style.transition = 'box-shadow 0.3s ease';
+        
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+            targetProduct.style.boxShadow = '';
+        }, 3000);
+    }
+}
+
+// Update your category button onclick handlers to use this function
+// Change these lines in your HTML:
+// onclick="scrollToCategory('wellwoman')" → onclick="scrollToProduct('Wellwoman Original (30 tablets)')"
+// onclick="scrollToCategory('wellman')" → onclick="scrollToProduct('Wellman Original (30 tablets)')"
+// onclick="scrollToCategory('wellbaby')" → onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')"
     // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
@@ -2155,6 +2216,57 @@ function scrollToCategory(category) {
         loadTestimonials();
     }
 });
+         // Add this to your existing JavaScript
+document.getElementById('trackOrderForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('trackName').value.trim();
+    const email = document.getElementById('trackEmail').value.trim();
+    const orderNumber = document.getElementById('trackOrderNumber').value.trim();
+    
+    if (!name || !email || !orderNumber) {
+        alert('Please fill all required fields');
+        return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    const message = `Order Tracking Request\n\nName: ${name}\nEmail: ${email}\nOrder Number: ${orderNumber}\n\nPlease provide an update on my order status.`;
+    
+    window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
+    
+    // Reset form
+    this.reset();
+    
+    // Show thank you message
+    const thankYouMessage = document.querySelector('.thank-you-message');
+    if (thankYouMessage) {
+        thankYouMessage.textContent = 'Your tracking request has been submitted!';
+        thankYouMessage.classList.add('show');
+        setTimeout(() => {
+            thankYouMessage.classList.remove('show');
+        }, 3000);
+    }
+});
     </script>
+         <!-- Order Tracking Page -->
+<section class="order-track-page" id="track-order">
+    <div class="container">
+        <div class="order-track-container">
+            <h2>Track Your Order</h2>
+            <div class="track-form">
+                <form id="trackOrderForm">
+                    <input type="text" id="trackName" placeholder="Your Name" required>
+                    <input type="email" id="trackEmail" placeholder="Your Email" required>
+                    <input type="text" id="trackOrderNumber" placeholder="Order Number" required>
+                    <button type="submit">Track Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
