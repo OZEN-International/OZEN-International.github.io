@@ -2255,7 +2255,7 @@ document.getElementById('trackOrderForm')?.addEventListener('submit', function(e
                     `Please provide an update on my order status.`;
     
     // Open WhatsApp with prefilled message
-    window.open(`https://wa.me/447557590003?text=${message}`, '_blank');
+            window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
     
     // Reset form
     this.reset();
