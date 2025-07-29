@@ -153,99 +153,28 @@
 .btn.shop-now-btn:active {
     transform: translateY(0);
 }
-.category-buttons-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin: 30px 0;
+             /* Add this to your CSS */
+.company-filter {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 300px;
+}
+
+.company-filter select {
     width: 100%;
-}
-
-.category-button {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.category-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.category-image {
-    width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.category-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-}
-
-.category-button .shop-now-btn {
-    width: 100%;
-    border-radius: 0 0 8px 8px;
-    margin-top: 0;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
     padding: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
 }
 
-.category-button .shop-now-btn:hover {
-    background-color: var(--secondary-color);
+.company-filter select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,161,154,0.2);
 }
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .category-buttons-container {
-        flex-direction: column;
-    }
-    
-    .men-category, .baby-category {
-        display: none;
-    }
-    
-    .mobile-category-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .mobile-category-buttons .shop-now-btn {
-        width: 100%;
-    }
-}
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-            color: var(--primary-color);
-            font-size: 2rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* Products Section */
+/* Products Section */
         .products {
             background-color: rgba(255, 255, 255, 0.95);
             padding: 60px 0;
@@ -253,37 +182,6 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .category-btn {
-            padding: 10px 20px;
-            background-color: var(--white);
-            border: 1px solid var(--primary-color);
-            border-radius: 4px;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-
-        .category-btn.active, .category-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .products-container {
-            margin-bottom: 60px;
-        }
-
         .product-tab {
             display: none;
         }
@@ -345,77 +243,6 @@
     margin-bottom: 15px;
     font-size: 1.2rem;
 }
-        /* Add these new styles for the filter controls */
-        .product-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .filter-group label {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .filter-group select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            min-width: 150px;
-        }
-        
-        .view-toggle {
-            display: flex;
-            gap: 10px;
-            margin-left: auto;
-        }
-        
-        .view-toggle button {
-            background: none;
-            border: 1px solid #00a19a;
-            color: #00a19a;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .view-toggle button.active {
-            background: #00a19a;
-            color: white;
-        }
-        
-        /* List view styles */
-        .list-view .products-grid {
-            display: block;
-        }
-        
-        .list-view .product-card {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .list-view .product-img {
-            width: 200px;
-            height: 200px;
-            flex-shrink: 0;
-        }
-        
-        .list-view .product-info {
-            text-align: left;
-            padding: 20px;
-            flex-grow: 1;
-        }
-        
         /* Back button styles */
         .products-back-btn {
             margin-bottom: 20px;
@@ -1170,14 +997,27 @@
 
     <!-- Products Section -->
 <section class="products" id="products">
+         <!-- Add this right after the products section title -->
+<section class="products" id="products">
     <div class="container">
         <h2 class="section-title">Our Products</h2>
+        
+        <!-- Add this company filter dropdown -->
+        <div class="company-filter">
+            <select id="companyFilter">
+                <option value="all">All Companies</option>
+                <option value="haleon">Haleon Pharma</option>
+                <option value="vitabiotics">Vitabiotics</option>
+                <option value="natures-bounty">Nature's Bounty</option>
+            </select>
+        </div>
+        
         <div class="products-container">
             <!-- Multivitamins Tab -->
             <div class="product-tab active" id="multivitamins">
                 <div class="products-grid">
                     <!-- Centrum Advance Adult -->
-                    <div class="product-card" data-category="multivitamins" data-price="8.99">
+                    <div class="product-card" data-category="multivitamins" data-price="8.99"  data-company="haleon">
                         <div class="product-img">
                             <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-advance-adults.png?auto=format" alt="Centrum Advance Adult">
                         </div>
@@ -1189,7 +1029,7 @@
                     </div>
                     
                     <!-- Centrum Advance 50+ -->
-                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                    <div class="product-card" data-category="multivitamins" data-price="12.99"  data-company="haleon">
                         <div class="product-img">
                             <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-advance-50-adults.png?auto=format" alt="Centrum Advance 50+">
                         </div>
@@ -1201,7 +1041,7 @@
                     </div>
                     
                     <!-- Centrum Men -->
-                    <div class="product-card" data-category="multivitamins" data-price="9.99">
+                    <div class="product-card" data-category="multivitamins" data-price="9.99"  data-company="haleon">
                         <div class="product-img">
                             <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-men.png?auto=format" alt="Centrum Men">
                         </div>
@@ -1213,7 +1053,7 @@
                     </div>
                     
                     <!-- Centrum Women -->
-                    <div class="product-card" data-category="multivitamins" data-price="9.99">
+                    <div class="product-card" data-category="multivitamins" data-price="9.99"  data-company="haleon">
                         <div class="product-img">
                             <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en-GB/sliced-images/global/products/new/centrum-women.png?auto=format" alt="Centrum Women">
                         </div>
@@ -1223,9 +1063,152 @@
                             <button class="add-to-cart">ADD TO CART</button>
                         </div>
                     </div>
-                    
+                    <!-- Nature's Bounty Products Section -->
+    <!-- 1. Hair, Skin & Nails with Biotin -->
+    <div class="product-card" data-category="beauty" data-price="6500" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_HS_N_120ct_Softgels_1_600x600.png?v=1692730977" alt="Nature's Bounty Hair Skin & Nails">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Nature's Bounty Hair, Skin & Nails with Biotin (120 softgels)</h3>
+            <div class="product-price">Rs.6500</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 2. Advanced Hair, Skin & Nails Gummies -->
+    <div class="product-card" data-category="beauty" data-price="5500" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Adv_HS_N_Gummies_80ct_1_600x600.png?v=1692730977" alt="Advanced Hair Skin & Nails Gummies">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Advanced Hair, Skin & Nails Gummies (80 count)</h3>
+            <div class="product-price">Rs.5500</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 3. Vitamin D3 5000IU -->
+    <div class="product-card" data-category="vitamins" data-price="4500" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Vitamin_D3_5000_120ct_Softgels_1_600x600.png?v=1692730977" alt="Vitamin D3 5000IU">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Vitamin D3 5000IU (120 softgels)</h3>
+            <div class="product-price">Rs.4500</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 4. Melatonin 5mg -->
+    <div class="product-card" data-category="sleep" data-price="5000" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Melatonin_5mg_60ct_Tablets_1_600x600.png?v=1692730977" alt="Melatonin 5mg">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Melatonin 5mg (60 tablets)</h3>
+            <div class="product-price">Rs.5000</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 5. CoQ10 100mg -->
+    <div class="product-card" data-category="heart" data-price="7500" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_CoQ10_100mg_60ct_Softgels_1_600x600.png?v=1692730977" alt="CoQ10 100mg">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">CoQ10 100mg (60 softgels)</h3>
+            <div class="product-price">Rs.7500</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 6. Probiotic 10 -->
+    <div class="product-card" data-category="digestive" data-price="6000" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Probiotic_10_30ct_Capsules_1_600x600.png?v=1692730977" alt="Probiotic 10">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Probiotic 10 (30 capsules)</h3>
+            <div class="product-price">Rs.6000</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 7. Ultra Omega-3 -->
+    <div class="product-card" data-category="heart" data-price="7000" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Ultra_Omega3_60ct_Softgels_1_600x600.png?v=1692730977" alt="Ultra Omega-3">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Ultra Omega-3 (60 softgels)</h3>
+            <div class="product-price">Rs.7000</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 8. Vitamin C 1000mg -->
+    <div class="product-card" data-category="immunity" data-price="4000" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Vitamin_C_1000mg_100ct_Tablets_1_600x600.png?v=1692730977" alt="Vitamin C 1000mg">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Vitamin C 1000mg (100 tablets)</h3>
+            <div class="product-price">Rs.4000</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 9. Advanced Menopause Relief -->
+    <div class="product-card" data-category="womens-health" data-price="8500" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/Adv_Menopause_Relief_60ct_Tablets_1_600x600.png?v=1692730977" alt="Advanced Menopause Relief">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Advanced Menopause Relief (60 tablets)</h3>
+            <div class="product-price">Rs.8500</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+    <!-- 10. Ultra Collagen Booster -->
+    <div class="product-card" data-category="beauty" data-price="9000" data-company="natures-bounty">
+        <div class="product-img">
+            <img src="https://www.naturesbounty.com/cdn/shop/files/Ultra_Collagen_Booster_60ct_Capsules_1_600x600.png?v=1692730977" alt="Ultra Collagen Booster">
+        </div>
+        <div class="product-info">
+            <h3 class="product-title">Ultra Collagen Booster (60 capsules)</h3>
+            <div class="product-price">Rs.9000</div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+</div>
+                     <!-- 11. B-Complex with Folic Acid -->
+<div class="product-card" data-category="vitamins" data-price="5000" data-company="natures-bounty">
+    <div class="product-img">
+        <img src="https://www.naturesbounty.com/cdn/shop/files/NB_BComplex_100ct_Tablets_1_600x600.png?v=1692730977" alt="B-Complex">
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">B-Complex with Folic Acid (100 tablets)</h3>
+        <div class="product-price">Rs.5000</div>
+        <button class="add-to-cart">ADD TO CART</button>
+    </div>
+</div>
+
+<!-- 12. Advanced Calcium + Vitamin D3 -->
+<div class="product-card" data-category="bone-health" data-price="6000" data-company="natures-bounty">
+    <div class="product-img">
+        <img src="https://www.naturesbounty.com/cdn/shop/files/NB_Adv_Calcium_D3_120ct_Tablets_1_600x600.png?v=1692730977" alt="Calcium + D3">
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">Advanced Calcium + Vitamin D3 (120 tablets)</h3>
+        <div class="product-price">Rs.6000</div>
+        <button class="add-to-cart">ADD TO CART</button>
+    </div>
+</div>
                     <!-- Wellman Original -->
-                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                    <div class="product-card" data-category="multivitamins" data-price="10.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/files/wellman_original_30_front_2D-CTWEL030T24WL1E_resized.png?v=1746718726" alt="Wellman Original">
                         </div>
@@ -1237,7 +1220,7 @@
                     </div>
                     
                     <!-- Wellman 50+ -->
-                    <div class="product-card" data-category="multivitamins" data-price="11.99">
+                    <div class="product-card" data-category="multivitamins" data-price="11.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/wellman50_resized_4e429c27-496e-4437-bc1d-31df05629e69.png?v=1595413955" alt="Wellman 50+">
                         </div>
@@ -1249,7 +1232,7 @@
                     </div>
                     
                          <!-- Wellman conception -->
-                    <div class="product-card" data-category="multivitamins" data-price="11.99">
+                    <div class="product-card" data-category="multivitamins" data-price="11.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/wellmanconception.png?v=1595514822" alt="Wellman Conception">
                         </div>
@@ -1261,7 +1244,7 @@
                     </div>
                     
                     <!-- Wellwoman Original -->
-                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                    <div class="product-card" data-category="multivitamins" data-price="10.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/wellwoman-originalusethisfront.png?v=1587029033" alt="Wellwoman Original">
                         </div>
@@ -1273,7 +1256,7 @@
                     </div>
                     
                     <!-- Wellwoman 50+ -->
-                    <div class="product-card" data-category="multivitamins" data-price="11.99">
+                    <div class="product-card" data-category="multivitamins" data-price="11.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/wellwoman_50_front_CTWEW030T5WL1ER_resized.png?v=1681393227" alt="Wellwoman 50+">
                         </div>
@@ -1284,7 +1267,7 @@
                         </div>
                     </div>
                     <!-- Pregnacare Original -->
-                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                    <div class="product-card" data-category="multivitamins" data-price="12.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/pregnacare_original_front_CTPRG030T32WLM1E_resized.png?v=1643804149" alt="Pregnacare Original">
                         </div>
@@ -1295,7 +1278,7 @@
                         </div>
                     </div>
                     <!-- Pregnacare Conception -->
-                    <div class="product-card" data-category="multivitamins" data-price="14.99">
+                    <div class="product-card" data-category="multivitamins" data-price="14.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/files/pregnacare_conception_front_CTPRG030T43WL2ER_resized.png?v=1692624578" alt="Pregnacare Conception">
                         </div>
@@ -1307,7 +1290,7 @@
                     </div>
                          
                     <!-- Pregnacare Breastfeeding -->
-                    <div class="product-card" data-category="multivitamins" data-price="24.99">
+                    <div class="product-card" data-category="multivitamins" data-price="24.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/pregnacare_breast_feeding_packshot_1028x1028_9c087962-0243-4374-8269-7d56920b4078.png?v=1635154988" alt="Pregnacare Breastfeeding">
                         </div>
@@ -1318,7 +1301,7 @@
                         </div>
                     </div>
                     <!-- Pregnacare Max -->
-                    <div class="product-card" data-category="multivitamins" data-price="24.99">
+                    <div class="product-card" data-category="multivitamins" data-price="24.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/files/pregnacare_max_front_CTPRG084C4T33WL2ER_resized.png?v=1692882698" alt="Pregnacare Max">
                         </div>
@@ -1330,7 +1313,7 @@
                     </div>
          
                     <!-- Jointace Original -->
-                    <div class="product-card" data-category="multivitamins" data-price="10.99">
+                    <div class="product-card" data-category="multivitamins" data-price="10.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceOriginalUpdatedPackFront_resized_bda0e242-ef69-4672-b75d-3aac09ea7d81.png?v=1656498482" alt="Jointace Original">
                         </div>
@@ -1342,7 +1325,7 @@
                     </div>
                     
                     <!-- Jointace Collagen -->
-                    <div class="product-card" data-category="joint" data-price="12.99">
+                    <div class="product-card" data-category="joint" data-price="12.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceCollagen__Front__CTJON030T12WL11E.png?v=1632735807" alt="Jointace Collagen">
                         </div>
@@ -1354,7 +1337,7 @@
                     </div>
                     
                     <!-- Jointace Max -->
-                    <div class="product-card" data-category="joint" data-price="22.99">
+                    <div class="product-card" data-category="joint" data-price="22.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/JointaceMaxUpdatedPackFront_resized.png?v=1656506716" alt="Jointace Max">
                         </div>
@@ -1366,7 +1349,7 @@
                     </div>
                     
                     <!-- Osteocare Original -->
-                    <div class="product-card" data-category="joint" data-price="9.99">
+                    <div class="product-card" data-category="joint" data-price="9.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/osteocare_original_front_CTOST030T28WL1E_resized.png?v=1660306527" alt="Osteocare Original">
                         </div>
@@ -1378,7 +1361,7 @@
                     </div>
                     
                     <!-- Osteocare plus 1000 -->
-                    <div class="product-card" data-category="joint" data-price="9.99">
+                    <div class="product-card" data-category="joint" data-price="9.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/osteocare_plus_front_CTOST084C1T28WL1E_resized_e18f0fa0-ea68-4103-9c4d-e1af6f94b4d8.png?v=1676470293" alt="Osteocare plus 1000">
                         </div>
@@ -1389,7 +1372,7 @@
                         </div>
                     </div>
                          <!-- Osteocare plus Glucosamine -->
-                    <div class="product-card" data-category="joint" data-price="9.99">
+                    <div class="product-card" data-category="joint" data-price="9.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/OsteocareGluc-Chond__Front__CTOST060T18WL8E_44038d1f-45f7-4799-ac70-8013ff20ce7d.png?v=1632732774" alt="Osteocare plus Glucosamin">
                         </div>
@@ -1400,7 +1383,7 @@
                         </div>
                     </div>
                     <!-- Perfectil Original -->
-                    <div class="product-card" data-category="beauty" data-price="14.99">
+                    <div class="product-card" data-category="beauty" data-price="14.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectiloriginal_f716fb2b-e5ac-42d4-82a9-a7b00d7c4584.png?v=1604592256" alt="Perfectil Original">
                         </div>
@@ -1412,7 +1395,7 @@
                     </div>
                     
                     <!-- Perfectil Hair -->
-                    <div class="product-card" data-category="beauty" data-price="24.99">
+                    <div class="product-card" data-category="beauty" data-price="24.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/perfectil_hair_front_CTPER060T17WL1ER_resized.png?v=1672844538" alt="Perfectil Hair">
                         </div>
@@ -1424,7 +1407,7 @@
                     </div>
                     
                     <!-- Perfectil Nails -->
-                    <div class="product-card" data-category="beauty" data-price="24.99">
+                    <div class="product-card" data-category="beauty" data-price="24.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectilnails_af2e3fbc-5f4d-40e1-a7e9-63f8a1e696d9.png?v=1604592182" alt="Perfectil Nails">
                         </div>
@@ -1436,7 +1419,7 @@
                     </div>
                          
                     <!-- Perfectil skin -->
-                    <div class="product-card" data-category="beauty" data-price="24.99">
+                    <div class="product-card" data-category="beauty" data-price="24.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectilskin_22c58324-63f8-47e9-9d55-cb217814ddb5.png?v=1604592355" alt="Perfectil skin">
                         </div>
@@ -1447,7 +1430,7 @@
                         </div>
                     </div>
                     <!-- Perfectil Platinum Skin -->
-                    <div class="product-card" data-category="beauty" data-price="29.99">
+                    <div class="product-card" data-category="beauty" data-price="29.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/Perfectilcollagen-skin_62fd58cd-6b9f-474f-b071-257a0ea06092.png?v=1604591815" alt="Perfectil Platinum Skin">
                         </div>
@@ -1459,7 +1442,7 @@
                     </div>               
                          
                     <!-- Feroglobin Caps -->
-                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                    <div class="product-card" data-category="multivitamins" data-price="12.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/feroglobin_capsules_front_CTFER030C8UK11E.png?v=1724080917" alt="Feroglobin Capsules">
                         </div>
@@ -1470,7 +1453,7 @@
                         </div>
                     </div>
                     <!-- Feroglobin Liquid -->
-                    <div class="product-card" data-category="multivitamins" data-price="12.99">
+                    <div class="product-card" data-category="multivitamins" data-price="12.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/feroglobin-liquid-front-CTFER200L7WL6E_resized.png?v=1652436155" alt="Feroglobin Liquid">
                         </div>
@@ -1482,7 +1465,7 @@
                     </div>
                     
                     <!-- Wellbaby Multi Drops -->
-                    <div class="product-card" data-category="multivitamins" data-price="8.99">
+                    <div class="product-card" data-category="multivitamins" data-price="8.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/wellbaby_multivitamin_drops_front_CTWBY030L14WL5E_resized.png?v=1681899283" alt="Wellbaby Multi Drops">
                         </div>
@@ -1494,7 +1477,7 @@
                     </div>
                     
                     <!-- Wellkid -->
-                    <div class="product-card" data-category="multivitamins" data-price="8.99">
+                    <div class="product-card" data-category="multivitamins" data-price="8.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://cdn.shopify.com/s/files/1/0027/7263/1621/products/Wellkid_Multi-Vitamin_Chewable_Front.png?v=1628001700" alt="WellKid">
                         </div>
@@ -1505,7 +1488,7 @@
                         </div>
                     </div>
                     <!-- Ultra Vitamin C -->
-                    <div class="product-card" data-category="specialized" data-price="9.99">
+                    <div class="product-card" data-category="specialized" data-price="9.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://cdn.shopify.com/s/files/1/0027/7263/1621/files/ultra_vitamin_C_front_CTSRC060T1WL9E_resized_large.png?v=1750949213" alt="Ultra Vitamin C">
                         </div>
@@ -1516,7 +1499,7 @@
                         </div>
                     </div>
                     <!-- Visionace Original -->
-                    <div class="product-card" data-category="specialized" data-price="10.99">
+                    <div class="product-card" data-category="specialized" data-price="10.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/files/visionace_original_front_CTVIS030T2WL2ER.png?crop=center&height=1024&v=1711475818&width=1024" alt="Visionace Original">
                         </div>
@@ -1527,7 +1510,7 @@
                         </div>
                     </div>
                     <!-- Menopace Original -->
-                    <div class="product-card" data-category="specialized" data-price="10.99">
+                    <div class="product-card" data-category="specialized" data-price="10.99" data-company="vitabiotics">
                         <div class="product-img">
                             <img src="https://www.vitabiotics.com/cdn/shop/products/Menopaceoriginal-pointyM.png?v=1600081542" alt="Menopace Original">
                         </div>
@@ -2240,6 +2223,28 @@ function scrollToProduct(productTitle) {
         }, 500);
     }
 }
+         // Add this to your existing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Company filter functionality
+    const companyFilter = document.getElementById('companyFilter');
+    
+    if (companyFilter) {
+        companyFilter.addEventListener('change', function() {
+            const selectedCompany = this.value;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const cardCompany = card.dataset.company;
+                
+                if (selectedCompany === 'all' || cardCompany === selectedCompany) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+});
 </script>
 <!-- Update your order track page section: -->
 <section class="order-track-page" id="track-order">
