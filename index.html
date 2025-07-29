@@ -1195,17 +1195,6 @@
 <section class="products" id="products">
     <div class="container">
         <h2 class="section-title">Our Products</h2>
-        
-        <!-- Add this company filter dropdown -->
-        <div class="company-filter">
-            <select id="companyFilter">
-                <option value="all">All Companies</option>
-                <option value="haleon">Haleon Pharma</option>
-                <option value="vitabiotics">Vitabiotics</option>
-                <option value="natures-bounty">Nature's Bounty</option>
-            </select>
-        </div>
-        
         <div class="products-container">
             <!-- Multivitamins Tab -->
             <div class="product-tab active" id="multivitamins">
@@ -2064,54 +2053,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }
     });
-
-    // Company filter functionality - Fixed the company filter issue
-    const companyFilter = document.getElementById('companyFilter');
-    if (companyFilter) {
-        companyFilter.addEventListener('change', function() {
-            const selectedCompany = this.value;
-            const productCards = document.querySelectorAll('.product-card');
-            
-            productCards.forEach(card => {
-                if (selectedCompany === 'all' || card.dataset.company === selectedCompany) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    }
-});
-
-// Enhanced scrollToProduct function (must be in global scope)
-function scrollToProduct(productTitle) {
-    const products = document.querySelectorAll('.product-title');
-    let targetProduct = null;
-    
-    // Find the matching product
-    products.forEach(product => {
-        if (product.textContent.trim() === productTitle) {
-            targetProduct = product.closest('.product-card');
-        }
-    });
-    
-    if (targetProduct) {
-        // First scroll to products section
-        document.querySelector('#products').scrollIntoView({
-            behavior: 'smooth'
-        });
-        
-        // Wait for scroll to complete then highlight product
-        setTimeout(() => {
-            // Highlight the product
-            targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
-            targetProduct.style.transition = 'box-shadow 0.3s ease';
-            
-            // Remove highlight after 3 seconds
-            setTimeout(() => {
-                targetProduct.style.boxShadow = '';
-            }, 3000);
-        }, 500);
     }
 }
 </script>
