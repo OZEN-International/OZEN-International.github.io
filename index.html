@@ -1529,38 +1529,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile view handling
-    if (window.innerWidth <= 768) {
-        const heroContent = document.querySelector('.hero-content');
-        if (heroContent) {
-            const mobileButtons = document.createElement('div');
-            mobileButtons.className = 'mobile-category-buttons';
-            mobileButtons.innerHTML = `
-                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
-                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
-                <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
-            `;
-            
-            const categoryButtonsContainer = document.querySelector('.category-buttons-container');
-            if (categoryButtonsContainer) {
+    // Mobile view handling - Fixed the duplicate buttons issue
+    function handleMobileView() {
+        const mobileButtonsContainer = document.querySelector('.mobile-category-buttons');
+        const categoryButtonsContainer = document.querySelector('.category-buttons-container');
+        
+        if (window.innerWidth <= 768) {
+            // Only create mobile buttons if they don't exist and category buttons container exists
+            if (!mobileButtonsContainer && categoryButtonsContainer) {
+                const mobileButtons = document.createElement('div');
+                mobileButtons.className = 'mobile-category-buttons';
+                mobileButtons.innerHTML = `
+                    <button class="btn shop-now-btn" onclick="scrollToProduct('Wellwoman Original (30 tablets)')">Shop for Women</button>
+                    <button class="btn shop-now-btn" onclick="scrollToProduct('Wellman Original (30 tablets)')">Shop for Men</button>
+                    <button class="btn shop-now-btn" onclick="scrollToProduct('Wellbaby Multi Drops (30ml)')">Shop for Baby</button>
+                `;
+                
+                // Hide the original category buttons in mobile view
+                categoryButtonsContainer.style.display = 'none';
                 categoryButtonsContainer.insertAdjacentElement('afterend', mobileButtons);
+            }
+        } else {
+            // In desktop view, remove mobile buttons and show original category buttons
+            if (mobileButtonsContainer) {
+                mobileButtonsContainer.remove();
+            }
+            if (categoryButtonsContainer) {
+                categoryButtonsContainer.style.display = 'flex';
             }
         }
     }
+
+    // Initialize on load and on resize
+    handleMobileView();
+    window.addEventListener('resize', handleMobileView);
 
     // Initialize cart
     let cart = JSON.parse(localStorage.getItem('ozen-cart')) || [];
     
     // Add cart icon to navigation if navMenu exists
     if (navMenu) {
-        const cartIcon = document.createElement('li');
-        cartIcon.innerHTML = `
-            <a href="#cart" id="cartLink">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cartCount">${cart.reduce((total, item) => total + item.quantity, 0)}</span>
-            </a>
-        `;
-        navMenu.appendChild(cartIcon);
+        // Check if cart icon already exists to avoid duplicates
+        if (!document.getElementById('cartLink')) {
+            const cartIcon = document.createElement('li');
+            cartIcon.innerHTML = `
+                <a href="#cart" id="cartLink">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">${cart.reduce((total, item) => total + item.quantity, 0)}</span>
+                </a>
+            `;
+            navMenu.appendChild(cartIcon);
+        }
     }
 
     // Track order page functionality
@@ -1579,19 +1598,21 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show track order page
             orderTrackPage.style.display = 'block';
             
-            // Add back button
-            const backButton = document.createElement('button');
-            backButton.className = 'back-btn';
-            backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Home';
-            backButton.addEventListener('click', function() {
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = 'block';
+            // Add back button if it doesn't exist
+            if (!document.querySelector('.back-btn')) {
+                const backButton = document.createElement('button');
+                backButton.className = 'back-btn';
+                backButton.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Home';
+                backButton.addEventListener('click', function() {
+                    document.querySelectorAll('section').forEach(section => {
+                        section.style.display = 'block';
+                    });
+                    orderTrackPage.style.display = 'none';
+                    backButton.remove();
                 });
-                orderTrackPage.style.display = 'none';
-                backButton.remove();
-            });
-            
-            orderTrackPage.prepend(backButton);
+                
+                orderTrackPage.prepend(backButton);
+            }
         });
     }
 
@@ -1636,7 +1657,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     id: productId,
                     name: productName,
                     price: priceValue,
-                    quantity: 1
+                    quantity: 1,
+                    company: productCard.dataset.company || 'unknown'
                 });
             }
             
@@ -1663,10 +1685,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show cart notification function
     function showCartNotification(message) {
-        const notification = document.querySelector('.cart-notification');
+        let notification = document.querySelector('.cart-notification');
         if (!notification) {
-            console.error('Notification element not found');
-            return;
+            notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            document.body.appendChild(notification);
         }
         
         notification.textContent = message;
@@ -1678,47 +1701,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Cart link click handler
-    document.getElementById('cartLink')?.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (cart.length === 0) {
-            alert('Your cart is empty!');
-            return;
-        }
-        
-        let message = "Hello OZÈN Internationals,\n\nI would like to place an order:\n\n";
-        let total = 0;
-
-        const productGroups = {};
-        cart.forEach(item => {
-            if (!productGroups[item.id]) {
-                productGroups[item.id] = {
-                    name: item.name,
-                    price: item.price,
-                    quantity: 0
-                };
-            }
-            productGroups[item.id].quantity += item.quantity;
-        });
-
-        Object.values(productGroups).forEach(item => {
-            const subtotal = item.price * item.quantity;
-            message += `➤ ${item.name}\n   Quantity: ${item.quantity}\n   Price: Rs.${item.price.toFixed(2)}\n   Subtotal: Rs.${subtotal.toFixed(2)}\n\n`;
-            total += subtotal;
-        });
-
-        message += `\nTOTAL: Rs.${total.toFixed(2)}\n\n`;
-        message += "Delivery Details:\nName: \nAddress: \nPhone: \n\nPlease confirm my order. Thank you!";
-        
-        try {
-            cart = [];
-            localStorage.setItem('ozen-cart', JSON.stringify(cart));
-            updateCartCount();
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('#cartLink')) {
+            e.preventDefault();
             
-            window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
-        } catch (e) {
-            console.error('Failed to process order:', e);
-            alert('There was an error processing your order. Please try again.');
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            let message = "Hello OZÈN Internationals,\n\nI would like to place an order:\n\n";
+            let total = 0;
+
+            const productGroups = {};
+            cart.forEach(item => {
+                if (!productGroups[item.id]) {
+                    productGroups[item.id] = {
+                        name: item.name,
+                        price: item.price,
+                        quantity: 0
+                    };
+                }
+                productGroups[item.id].quantity += item.quantity;
+            });
+
+            Object.values(productGroups).forEach(item => {
+                const subtotal = item.price * item.quantity;
+                message += `➤ ${item.name}\n   Quantity: ${item.quantity}\n   Price: Rs.${item.price.toFixed(2)}\n   Subtotal: Rs.${subtotal.toFixed(2)}\n\n`;
+                total += subtotal;
+            });
+
+            message += `\nTOTAL: Rs.${total.toFixed(2)}\n\n`;
+            message += "Delivery Details:\nName: \nAddress: \nPhone: \n\nPlease confirm my order. Thank you!";
+            
+            try {
+                cart = [];
+                localStorage.setItem('ozen-cart', JSON.stringify(cart));
+                updateCartCount();
+                
+                window.open(`https://wa.me/447557590003?text=${encodeURIComponent(message)}`, '_blank');
+            } catch (e) {
+                console.error('Failed to process order:', e);
+                alert('There was an error processing your order. Please try again.');
+            }
         }
     });
 
@@ -2039,6 +2064,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }
     });
+
+    // Company filter functionality - Fixed the company filter issue
+    const companyFilter = document.getElementById('companyFilter');
+    if (companyFilter) {
+        companyFilter.addEventListener('change', function() {
+            const selectedCompany = this.value;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                if (selectedCompany === 'all' || card.dataset.company === selectedCompany) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
 });
 
 // Enhanced scrollToProduct function (must be in global scope)
@@ -2071,22 +2113,6 @@ function scrollToProduct(productTitle) {
             }, 3000);
         }, 500);
     }
-}
-         // Company filter functionality
-const companyFilter = document.getElementById('companyFilter');
-if (companyFilter) {
-    companyFilter.addEventListener('change', function() {
-        const selectedCompany = this.value;
-        const productCards = document.querySelectorAll('.product-card');
-        
-        productCards.forEach(card => {
-            if (selectedCompany === 'all' || card.dataset.company === selectedCompany) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
 }
 </script>
 <!-- Update your order track page section: -->
