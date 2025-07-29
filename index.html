@@ -1715,7 +1715,6 @@
     <!-- Cart Notification -->
     <div class="cart-notification"></div>
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -2264,8 +2263,55 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }
     });
+
+    // Company filter functionality - Fixed the company filter issue
+    const companyFilter = document.getElementById('companyFilter');
+    if (companyFilter) {
+        companyFilter.addEventListener('change', function() {
+            const selectedCompany = this.value;
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                if (selectedCompany === 'all' || card.dataset.company === selectedCompany) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     }
-                          })
+});
+
+// Enhanced scrollToProduct function (must be in global scope)
+function scrollToProduct(productTitle) {
+    const products = document.querySelectorAll('.product-title');
+    let targetProduct = null;
+    
+    // Find the matching product
+    products.forEach(product => {
+        if (product.textContent.trim() === productTitle) {
+            targetProduct = product.closest('.product-card');
+        }
+    });
+    
+    if (targetProduct) {
+        // First scroll to products section
+        document.querySelector('#products').scrollIntoView({
+            behavior: 'smooth'
+        });
+        
+        // Wait for scroll to complete then highlight product
+        setTimeout(() => {
+            // Highlight the product
+            targetProduct.style.boxShadow = '0 0 0 3px rgba(0,161,154,0.5)';
+            targetProduct.style.transition = 'box-shadow 0.3s ease';
+            
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                targetProduct.style.boxShadow = '';
+            }, 3000);
+        }, 500);
+    }
 }
 </script>
 <!-- Update your order track page section: -->
