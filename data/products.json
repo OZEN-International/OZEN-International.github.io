@@ -1,106 +1,68 @@
 [
   {
-    "slug": "wellman-original-30s",
-    "name": "Wellman Original",
-    "category": "mens-health",
-    "categoryLabel": "Men\u2019s Health",
-    "form": "tablets",
-    "packSize": "30s",
-    "images": [
-      "/brand/wellman-original.jpg"
-    ],
-    "shortBenefits": [
-      "24 nutrients for men",
-      "Energy release",
-      "Immune support"
-    ],
-    "mrp": 2799,
-    "salePrice": 2599,
-    "stockStatus": "in_stock"
-  },
-  {
-    "slug": "wellman-conception-30s",
-    "name": "Wellman Conception",
-    "category": "mens-health",
-    "categoryLabel": "Men\u2019s Health",
-    "form": "tablets",
-    "packSize": "30s",
-    "images": [
-      "/brand/wellman-conception.jpg"
-    ],
-    "shortBenefits": [
-      "Zinc for normal fertility",
-      "MICRONUTRIENTS"
-    ],
-    "mrp": 3499,
-    "stockStatus": "in_stock"
-  },
-  {
-    "slug": "wellwoman-original-30s",
-    "name": "Wellwoman Original",
-    "category": "womens-health",
-    "categoryLabel": "Women\u2019s Health",
-    "form": "tablets",
-    "packSize": "30s",
-    "images": [
-      "/brand/wellwoman-original.jpg"
-    ],
-    "shortBenefits": [
-      "Energy & immune support",
-      "Skin, hair & nails"
-    ],
-    "mrp": 2999,
-    "stockStatus": "in_stock"
-  },
-  {
-    "slug": "perfectil-collagen-shots-7",
-    "name": "Perfectil Collagen Skin Shots",
-    "category": "skin-hair-nails",
-    "categoryLabel": "Skin/Hair/Nails",
-    "form": "shots",
-    "packSize": "7 shots",
-    "images": [
-      "/brand/perfectil-shots.jpg"
-    ],
-    "shortBenefits": [
-      "Marine collagen",
-      "Biotin + Vitamin C"
-    ],
-    "mrp": 4999,
-    "stockStatus": "low_stock"
-  },
-  {
-    "slug": "osteocare-original-30s",
+    "slug": "osteocare-original",
     "name": "Osteocare Original",
-    "category": "bone-health",
-    "categoryLabel": "Bone Health",
-    "form": "tablets",
-    "packSize": "30s",
-    "images": [
-      "/brand/osteocare-original.jpg"
-    ],
     "shortBenefits": [
-      "Calcium + D3 + Magnesium",
-      "Bone support"
+      "Calcium, Magnesium, Vitamin D3 & Zinc",
+      "Supports Bone Health"
     ],
-    "mrp": 2699,
-    "stockStatus": "in_stock"
+    "mrp": 2500,
+    "salePrice": 2200,
+    "images": ["/brand/osteocare-original.jpg"]
   },
   {
-    "slug": "tea-plus-vitamin-d",
-    "name": "Tea+ Vitamin D",
-    "category": "functional-teas",
-    "categoryLabel": "Tea+",
-    "form": "tea",
-    "packSize": "15 bags",
-    "images": [
-      "/brand/teaplus-d.jpg"
-    ],
+    "slug": "perfectil-shots",
+    "name": "Perfectil Hair Crush Gummies",
     "shortBenefits": [
-      "With Vitamin D",
-      "Wellness, steeped"
+      "Biotin, Selenium & Zinc",
+      "Supports Hair & Skin"
     ],
-    "mrp": 1299,
-    "stockStatus": "in_stock"
+    "mrp": 4500,
+    "salePrice": 3990,
+    "images": ["/brand/perfectil-shots.jpg"]
+  },
+  {
+    "slug": "teaplus-detox",
+    "name": "Tea+ Detox",
+    "shortBenefits": [
+      "Green Tea, Milk Thistle & Dandelion",
+      "Helps Detoxify the Body"
+    ],
+    "mrp": 1800,
+    "salePrice": 1600,
+    "images": ["/brand/teaplus-d.jpg"]
+  },
+  {
+    "slug": "wellman-conception",
+    "name": "Wellman Conception",
+    "shortBenefits": [
+      "Vitamins & Minerals for Male Fertility",
+      "Helps Reproductive Health"
+    ],
+    "mrp": 3000,
+    "salePrice": 2700,
+    "images": ["/brand/wellman-conception.jpg"]
+  },
+  {
+    "slug": "wellman-original",
+    "name": "Wellman Original",
+    "shortBenefits": [
+      "Multivitamin for Men",
+      "Supports Energy & Immunity"
+    ],
+    "mrp": 2800,
+    "salePrice": 2500,
+    "images": ["/brand/wellman-original.jpg"]
+  },
+  {
+    "slug": "wellwoman-original",
+    "name": "Wellwoman Original",
+    "shortBenefits": [
+      "Multivitamin for Women",
+      "Supports Energy & Hormonal Balance"
+    ],
+    "mrp": 2800,
+    "salePrice": 2500,
+    "images": ["/brand/wellwoman-original.jpg"]
   }
 ]
