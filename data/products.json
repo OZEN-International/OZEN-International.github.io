@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "wellman-original-30s",
+    "name": "Wellman Original",
+    "category": "mens-health",
+    "categoryLabel": "Men\u2019s Health",
+    "form": "tablets",
+    "packSize": "30s",
+    "images": [
+      "/brand/wellman-original.jpg"
+    ],
+    "shortBenefits": [
+      "24 nutrients for men",
+      "Energy release",
+      "Immune support"
+    ],
+    "mrp": 2799,
+    "salePrice": 2599,
+    "stockStatus": "in_stock"
+  },
+  {
+    "slug": "wellman-conception-30s",
+    "name": "Wellman Conception",
+    "category": "mens-health",
+    "categoryLabel": "Men\u2019s Health",
+    "form": "tablets",
+    "packSize": "30s",
+    "images": [
+      "/brand/wellman-conception.jpg"
+    ],
+    "shortBenefits": [
+      "Zinc for normal fertility",
+      "MICRONUTRIENTS"
+    ],
+    "mrp": 3499,
+    "stockStatus": "in_stock"
+  },
+  {
+    "slug": "wellwoman-original-30s",
+    "name": "Wellwoman Original",
+    "category": "womens-health",
+    "categoryLabel": "Women\u2019s Health",
+    "form": "tablets",
+    "packSize": "30s",
+    "images": [
+      "/brand/wellwoman-original.jpg"
+    ],
+    "shortBenefits": [
+      "Energy & immune support",
+      "Skin, hair & nails"
+    ],
+    "mrp": 2999,
+    "stockStatus": "in_stock"
+  },
+  {
+    "slug": "perfectil-collagen-shots-7",
+    "name": "Perfectil Collagen Skin Shots",
+    "category": "skin-hair-nails",
+    "categoryLabel": "Skin/Hair/Nails",
+    "form": "shots",
+    "packSize": "7 shots",
+    "images": [
+      "/brand/perfectil-shots.jpg"
+    ],
+    "shortBenefits": [
+      "Marine collagen",
+      "Biotin + Vitamin C"
+    ],
+    "mrp": 4999,
+    "stockStatus": "low_stock"
+  },
+  {
+    "slug": "osteocare-original-30s",
+    "name": "Osteocare Original",
+    "category": "bone-health",
+    "categoryLabel": "Bone Health",
+    "form": "tablets",
+    "packSize": "30s",
+    "images": [
+      "/brand/osteocare-original.jpg"
+    ],
+    "shortBenefits": [
+      "Calcium + D3 + Magnesium",
+      "Bone support"
+    ],
+    "mrp": 2699,
+    "stockStatus": "in_stock"
+  },
+  {
+    "slug": "tea-plus-vitamin-d",
+    "name": "Tea+ Vitamin D",
+    "category": "functional-teas",
+    "categoryLabel": "Tea+",
+    "form": "tea",
+    "packSize": "15 bags",
+    "images": [
+      "/brand/teaplus-d.jpg"
+    ],
+    "shortBenefits": [
+      "With Vitamin D",
+      "Wellness, steeped"
+    ],
+    "mrp": 1299,
+    "stockStatus": "in_stock"
+  }
+]
